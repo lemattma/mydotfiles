@@ -60,3 +60,12 @@ Link user config to Dropbox
 rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 ln -s ~/Dropbox/Sublime/Packages/User ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
 ```
+
+## Misc
+
+```
+npm install -g git-recent
+
+npm install -g diff-so-fancy
+git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+```
