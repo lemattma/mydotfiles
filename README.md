@@ -53,3 +53,10 @@ Add `subl` to `bin`
 ```
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 ```
+
+Link user config to Dropbox
+
+```
+rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+ln -s ~/Dropbox/Sublime/Packages/User ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+```
