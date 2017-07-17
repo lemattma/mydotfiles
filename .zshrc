@@ -7,8 +7,6 @@ export ZSH=/Users/martin/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="honukai"
 
-PROMPT='%{%f%k%}$(build_prompt) lkjlkjlkj '
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -55,9 +53,7 @@ plugins=(common-aliases git rake web-search zsh_reload colorize rails z lemattma
 
 # User configuration
 
-#export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin"
-#PATH=$PATH:~/bin
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$PATH:~/bin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -87,4 +83,3 @@ export EDITOR='vim'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(rbenv init -)"
-eval $(docker-machine env default)

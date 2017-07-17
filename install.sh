@@ -18,5 +18,3 @@ else
 fi
 
 unset syncAll
-
-source ~/.zshrc

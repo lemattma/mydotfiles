@@ -52,3 +52,6 @@ alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall 
 
 # Check recursively Ruby syntax
 alias checkrb='find . -name "*.rb" -exec ruby -wc {} \; 2>&1 | grep -v "Syntax OK\|: warning:"'
+
+# Docker
+alias dockerconf='eval $(docker-machine env default)'
