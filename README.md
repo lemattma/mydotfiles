@@ -68,4 +68,6 @@ npm install -g git-recent
 
 npm install -g diff-so-fancy
 git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+
+npm install -g git-open
 ```
