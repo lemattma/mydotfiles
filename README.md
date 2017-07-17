@@ -1,15 +1,19 @@
 Very simple configuration files based on https://github.com/paulirish/dotfiles
 
-## Install
+## Install Oh My Zsh
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+## Install dotfiles
 
 ```
 chmod +x install.sh
 ./install.sh
 ```
 
-## Vim
-
-#### Vundle
+## Setup Vim and Vundle
 
 https://github.com/VundleVim/Vundle.vim
 
@@ -23,12 +27,10 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 ```
 
-### Powerline
+## Powerline
 
 https://powerline.readthedocs.io/en/latest/installation/osx.html
 https://github.com/powerline/fonts
-
-### Airline
 
 Powerline alternative
 
@@ -36,4 +38,18 @@ https://github.com/vim-airline/vim-airline
 
 ## Iterm2
 
-To import settings go to `Preferences > General > Load preferences from a custom folder or URL`.
+To import settings go to `Preferences > General > Load preferences from a custom folder or URL`. You'll need to refresh the cache afterwards.
+
+```
+defaults read com.googlecode.iterm2
+# or..
+killall cfprefsd
+```
+
+## Sublime
+
+Add `subl` to `bin`
+
+```
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+```
