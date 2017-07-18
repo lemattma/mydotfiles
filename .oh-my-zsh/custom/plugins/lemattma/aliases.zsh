@@ -55,3 +55,6 @@ alias checkrb='find . -name "*.rb" -exec ruby -wc {} \; 2>&1 | grep -v "Syntax O
 
 # Docker
 alias dockerconf='eval $(docker-machine env default)'
+
+# MySQL backup
+alias mysqldumpfull='mysqldump --opt -u root -p --all-databases | gzip > ~/mysql-full-backup-$(date +%F).sql.gz'
