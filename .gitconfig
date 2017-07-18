@@ -8,6 +8,7 @@ email = martinmirandac@gmail.com
 
 [core]
 	excludesfile = /Users/martin/.gitignore_global
+  pager = diff-so-fancy | less --tabs=4 -RFX
 
 [filter "lfs"]
 	clean = git-lfs clean %f
