@@ -4,7 +4,7 @@ echo "Switvched to: `pwd`"
 
 # git pull
 function syncAll() {
-  rsync --exclude ".gitignore" --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" --exclude "README.md" -av . ~
+  rsync --exclude ".gitignore" --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" --exclude "README.md" --exclude "iterm2" -av . ~
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
