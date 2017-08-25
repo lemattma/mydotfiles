@@ -22,10 +22,9 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'               " For Fugitive's Clog
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/syntastic'
 call vundle#end()
 
@@ -52,6 +51,7 @@ set synmaxcol=200
 set lazyredraw
 set splitbelow                                                              " New window goes below
 set splitright                                                              " New windows goes right
+set autoread                                                                " Auto refresh changed files
 " set cursorline                                                            " Highlight current line SLOW
 set autoindent                                                              " Copy indent from last line when starting new line.
 set expandtab                                                               " Expand tabs to spaces
