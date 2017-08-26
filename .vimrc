@@ -29,6 +29,7 @@ Plugin 'tpope/vim-unimpaired'               " For Fugitive's Clog
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/syntastic'
+Plugin 'jiangmiao/auto-pairs'
 call vundle#end()
 
 set background=dark
