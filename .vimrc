@@ -3,6 +3,9 @@ syntax on
 filetype plugin on
 filetype plugin indent on
 
+" Disbale Netrw
+let loaded_netrwPlugin = 0
+
 command! MakeTags !ctags -R . --exclude=.git --exclude=log *
 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -176,6 +179,7 @@ nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
 let NERDTreeShowBookmarks=1
+let NERDTreeHijackNetrw=0
 
 " CtrlP
 nnoremap <silent>t :CtrlP<cr>
