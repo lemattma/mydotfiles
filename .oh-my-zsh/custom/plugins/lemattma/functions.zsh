@@ -139,3 +139,9 @@ function update_creation_date() {
     fi
   done
 }
+
+function update_file_creation_date() {
+  timestamp=`stat -f %B $2`
+  timestamp_date=`date -r $timestamp +%Y%m%d%H%M`
+  touch -t $timestamp_date $1
+}
