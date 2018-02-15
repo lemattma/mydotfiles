@@ -11,6 +11,10 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```
 chmod +x install.sh
 ./install.sh
+
+# or symlink files as needed.
+ln -s .tmux.conf ~/.tmux.conf
+ln -s .vimrc ~/.vimrc
 ```
 
 ## Setup Vim and Vundle
@@ -52,6 +56,7 @@ Add `subl` to `bin`
 
 ```
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+ln -s ~/Dropbox/Sublime/Packages/User ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
 ```
 
 Link user config to Dropbox

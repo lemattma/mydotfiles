@@ -1,6 +1,6 @@
 #!/bin/bash
 cd `dirname "$0"`
-echo "Switvched to: `pwd`"
+echo "Switched to: `pwd`"
 
 # git pull
 function syncAll() {
