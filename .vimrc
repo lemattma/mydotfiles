@@ -1,7 +1,5 @@
 set nocompatible
-syntax on
-filetype plugin on
-filetype plugin indent on
+filetype off
 
 " Disbale Netrw
 let loaded_netrwPlugin = 0
@@ -30,6 +28,7 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/syntastic'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'kchmck/vim-coffee-script'
 call vundle#end()
 
 set background=dark
@@ -38,7 +37,8 @@ color solarized
 " Change leader to a comma
 let mapleader=","
 
-
+filetype plugin indent on
+syntax on
 
 " ############################################
 " General configuration
@@ -134,6 +134,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 " shortcuts to save
 nmap <leader>,                    :w<cr>
 noremap <silent> <C-S>       :update<CR>
@@ -190,9 +192,10 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_by_filename = 0
 let g:ctrlp_max_files = 15000
 let g:ctrlp_max_depth = 10
+let g:ctrlp_show_hidden = 1
 " Sane Ignore For ctrlp
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
+      \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$\|db\/migrate$\|node_modules$\|build$',
       \ 'file': '\.exe$\|\.so$\|\.dat$'
       \ }
 
