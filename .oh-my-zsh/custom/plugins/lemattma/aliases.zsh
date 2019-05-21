@@ -58,3 +58,7 @@ alias dockerconf='eval $(docker-machine env default)'
 
 # MySQL backup
 alias mysqldumpfull='mysqldump --opt -u root -p --all-databases | gzip > ~/mysql-full-backup-$(date +%F).sql.gz'
+
+# VSCode
+alias vsc='"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"'
+

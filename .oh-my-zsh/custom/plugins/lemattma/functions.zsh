@@ -145,3 +145,17 @@ function update_file_creation_date() {
   timestamp_date=`date -r $timestamp +%Y%m%d%H%M`
   touch -t $timestamp_date $1
 }
+
+function clean_docker(){
+  docker images -q --filter dangling=true | xargs docker rmi                                                                                                                                                                          git:(API-810|)
+  docker ps -aq --no-trunc | xargs docker rm
+}
+
+function aws_auth(){
+  ENV=${1:=dev}
+  export AWS_PROFILE=${ENV}
+  export AWS_ACCESS_KEY_ID=`aws configure get aws_access_key_id`
+  export AWS_SECRET_ACCESS_KEY=`aws configure get aws_secret_access_key`
+  echo "Current AWS_PROFILE: $AWS_PROFILE"
+  echo "Current AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
+}
