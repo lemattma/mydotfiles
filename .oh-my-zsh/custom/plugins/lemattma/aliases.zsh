@@ -10,8 +10,9 @@ alias c='colorize'
 
 # Git stuff
 alias gundocommit="git reset --soft HEAD^"
-alias gupdatecommit="git add . && git commit --amend && gpoc"
-# alias gundopush="git push -f origin HEAD^:master"
+alias gupdatecommit="git add . && git commit --amend --no-edit && gpoc"
+alias gcom="gco master && git pull origin master"
+alias gcod="gco develop && git pull origin develop"
 alias gpoc='git push -f origin `git rev-parse --abbrev-ref HEAD`'
 alias gsh="git add . && git stash"
 alias gshp="git stash pop"
