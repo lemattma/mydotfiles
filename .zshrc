@@ -49,7 +49,7 @@ ZSH_THEME="lemattma"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases bundler git rake zsh_reload colorize rails docker docker-compose z lemattma)
+plugins=(common-aliases git z lemattma)
 
 # User configuration
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -86,8 +86,8 @@ export EDITOR='vim'
 # export CPPFLAGS="-I/usr/local/opt/mysql@5.7/include"
 # export PKG_CONFIG_PATH="/usr/local/opt/mysql@5.7/lib/pkgconfig"
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+#   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
