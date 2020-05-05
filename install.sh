@@ -13,6 +13,10 @@ else
   read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
   echo
   if [[ $REPLY =~ ^[Yy]$ ]]; then
+    mkdir -p ~/.vim/swaps
+    mkdir -p ~/.vim/undo
+    touch ~/.z
+    
     syncAll
   fi
 fi
