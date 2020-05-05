@@ -2,37 +2,38 @@ set nocompatible
 filetype off
 
 " Disbale Netrw
-let loaded_netrwPlugin = 0
+" let loaded_netrwPlugin = 0
 
-command! MakeTags !ctags -R . --exclude=.git --exclude=log *
+" command! MakeTags !ctags -R . --exclude=.git --exclude=log *
 
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/opt/fzf
+" set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
-Plugin 'gmarik/vundle'
-Plugin 'tpope/vim-sensible'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'Lokaltog/powerline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'rking/ag.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'vimwiki/vimwiki'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'qpkorr/vim-bufkill'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'               " For Fugitive's Clog
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-commentary'
-Plugin 'scrooloose/syntastic'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'kchmck/vim-coffee-script'
+Plugin 'VundleVim/vundle'
+" Plugin 'gmarik/vundle'
+" Plugin 'tpope/vim-sensible'
+" Plugin 'altercation/vim-colors-solarized'
+" Plugin 'Lokaltog/powerline'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'rking/ag.vim'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'vimwiki/vimwiki'
+" Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'qpkorr/vim-bufkill'
+" Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-unimpaired'               " For Fugitive's Clog
+" Plugin 'thoughtbot/vim-rspec'
+" Plugin 'tpope/vim-commentary'
+" Plugin 'scrooloose/syntastic'
+" Plugin 'jiangmiao/auto-pairs'
+" Plugin 'kchmck/vim-coffee-script'
 call vundle#end()
 
 set background=dark
-color solarized
+"color solarized
 
 " Change leader to a comma
 let mapleader=","
@@ -85,19 +86,19 @@ set pastetoggle=<leader>v                                                   " se
 " Powerline config
 " ############################################
 
-set guifont=Inconsolata\ for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8 nobomb " BOM often causes trouble
-set termencoding=utf-8
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set laststatus=2
-if has("gui_running")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    set guifont=Inconsolata\ for\ Powerline:h15
-  endif
-endif
+" set guifont=Inconsolata\ for\ Powerline:h15
+" let g:Powerline_symbols = 'fancy'
+" set encoding=utf-8 nobomb " BOM often causes trouble
+" set termencoding=utf-8
+" set t_Co=256
+" set fillchars+=stl:\ ,stlnc:\
+" set laststatus=2
+" if has("gui_running")
+"   let s:uname = system("uname")
+"   if s:uname == "Darwin\n"
+"     set guifont=Inconsolata\ for\ Powerline:h15
+"   endif
+" endif
 
 
 
@@ -177,42 +178,41 @@ endif
 " Plugins configuration
 " ############################################
 
-" NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
-let NERDTreeHighlightCursorline=1
-let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
-let NERDTreeShowBookmarks=1
-let NERDTreeHijackNetrw=0
-
-" CtrlP
-nnoremap <silent>t :CtrlP<cr>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>r :CtrlPMRUFiles<CR>
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_by_filename = 0
-let g:ctrlp_max_files = 15000
-let g:ctrlp_max_depth = 10
-let g:ctrlp_show_hidden = 1
-" Sane Ignore For ctrlp
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$\|db\/migrate$\|node_modules$\|build$',
-      \ 'file': '\.exe$\|\.so$\|\.dat$'
-      \ }
-
-" ag search
-nnoremap \ :Ag<SPACE>-ri<SPACE>
-
-" Rspec
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_runner = "os_x_iterm2"
-let g:rspec_command = "!bundle exec spring rspec --no-profile {spec}"
-
-" Fugitive
-nmap <silent> <leader>gs :Gstatus<cr>
-nmap <leader>ge :Gedit<cr>
-nmap <silent><leader>gr :Gread<cr>
-nmap <silent><leader>gb :Gblame<cr>
-
+" " NERDTree
+" nmap <leader>n :NERDTreeToggle<CR>
+" let NERDTreeHighlightCursorline=1
+" let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
+" let NERDTreeShowBookmarks=1
+" let NERDTreeHijackNetrw=0
+" 
+" " CtrlP
+" nnoremap <silent>t :CtrlP<cr>
+" nnoremap <leader>b :CtrlPBuffer<CR>
+" nnoremap <leader>r :CtrlPMRUFiles<CR>
+" let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_by_filename = 0
+" let g:ctrlp_max_files = 15000
+" let g:ctrlp_max_depth = 10
+" let g:ctrlp_show_hidden = 1
+" " Sane Ignore For ctrlp
+" let g:ctrlp_custom_ignore = {
+"       \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$\|db\/migrate$\|node_modules$\|build$',
+"       \ 'file': '\.exe$\|\.so$\|\.dat$'
+"       \ }
+" 
+" " ag search
+" nnoremap \ :Ag<SPACE>-ri<SPACE>
+" 
+" " Rspec
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
+" let g:rspec_runner = "os_x_iterm2"
+" let g:rspec_command = "!bundle exec spring rspec --no-profile {spec}"
+" 
+" " Fugitive
+" nmap <silent> <leader>gs :Gstatus<cr>
+" nmap <leader>ge :Gedit<cr>
+" nmap <silent><leader>gr :Gread<cr>
+" nmap <silent><leader>gb :Gblame<cr>
