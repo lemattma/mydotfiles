@@ -11,12 +11,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 " set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
-Plugin 'VundleVim/vundle'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'preservim/nerdtree'
+
 " Plugin 'gmarik/vundle'
 " Plugin 'tpope/vim-sensible'
 " Plugin 'altercation/vim-colors-solarized'
 " Plugin 'Lokaltog/powerline'
-" Plugin 'scrooloose/nerdtree'
 " Plugin 'rking/ag.vim'
 " Plugin 'kien/ctrlp.vim'
 " Plugin 'vimwiki/vimwiki'
@@ -179,12 +180,12 @@ endif
 " ############################################
 
 " " NERDTree
-" nmap <leader>n :NERDTreeToggle<CR>
-" let NERDTreeHighlightCursorline=1
-" let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
-" let NERDTreeShowBookmarks=1
-" let NERDTreeHijackNetrw=0
-" 
+nmap <leader>n :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1
+let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
+let NERDTreeShowBookmarks=1
+let NERDTreeHijackNetrw=0
+
 " " CtrlP
 " nnoremap <silent>t :CtrlP<cr>
 " nnoremap <leader>b :CtrlPBuffer<CR>
@@ -199,10 +200,10 @@ endif
 "       \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$\|db\/migrate$\|node_modules$\|build$',
 "       \ 'file': '\.exe$\|\.so$\|\.dat$'
 "       \ }
-" 
+"
 " " ag search
 " nnoremap \ :Ag<SPACE>-ri<SPACE>
-" 
+"
 " " Rspec
 " map <Leader>t :call RunCurrentSpecFile()<CR>
 " map <Leader>s :call RunNearestSpec()<CR>
@@ -210,7 +211,7 @@ endif
 " map <Leader>a :call RunAllSpecs()<CR>
 " let g:rspec_runner = "os_x_iterm2"
 " let g:rspec_command = "!bundle exec spring rspec --no-profile {spec}"
-" 
+"
 " " Fugitive
 " nmap <silent> <leader>gs :Gstatus<cr>
 " nmap <leader>ge :Gedit<cr>
