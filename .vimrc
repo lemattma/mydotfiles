@@ -2,39 +2,45 @@ set nocompatible
 filetype off
 
 " Disbale Netrw
-" let loaded_netrwPlugin = 0
+let loaded_netrwPlugin = 0
 
 " command! MakeTags !ctags -R . --exclude=.git --exclude=log *
 
-" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 set rtp+=~/.vim/bundle/Vundle.vim
-" set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'preservim/nerdtree'
-
-" Plugin 'gmarik/vundle'
+Plugin 'preservim/nerdtree'                    " Navigator
+Plugin 'neoclide/coc.nvim'                     " Conquer of completion
+Plugin 'sheerun/vim-polyglot'                  " Collection of syntax plugins
+Plugin 'dense-analysis/ale'
+Plugin 'junegunn/fzf.vim'
+" Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'arcticicestudio/nord-vim.git'
+Plugin 'itchyny/lightline.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'preservim/nerdcommenter'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ludovicchabant/vim-gutentags.git'
+Plugin 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 " Plugin 'tpope/vim-sensible'
-" Plugin 'altercation/vim-colors-solarized'
-" Plugin 'Lokaltog/powerline'
 " Plugin 'rking/ag.vim'
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'vimwiki/vimwiki'
 " Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'qpkorr/vim-bufkill'
 " Plugin 'tpope/vim-surround'
-" Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-unimpaired'               " For Fugitive's Clog
-" Plugin 'thoughtbot/vim-rspec'
-" Plugin 'tpope/vim-commentary'
-" Plugin 'scrooloose/syntastic'
 " Plugin 'jiangmiao/auto-pairs'
-" Plugin 'kchmck/vim-coffee-script'
 call vundle#end()
 
-set background=dark
-"color solarized
+" Theme
+set termguicolors
+" colorscheme dracula
+colorscheme nord
+set laststatus=2
+" transparent bg
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 " Change leader to a comma
 let mapleader=","
@@ -45,63 +51,40 @@ syntax on
 " ############################################
 " General configuration
 " ############################################
-set path+=**                                                                " Recursive find
-set wildmenu                                                                " Hitting TAB in command mode will show possible completions above command line.
-set wildmode=list:longest                                                   " Complete only until point of ambiguity.
+set hidden                          " Enables hidden buffers
+set path+=**                        " Recursive find
+set wildmenu                        " Hitting TAB in command mode will show possible completions above command line.
+set wildmode=list:full              " List and cycle through matches
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 set undodir=~/.vim/undo
-set clipboard=unnamed                                                       " Share clipboard with OS
-set ttyfast                                                                 " Send more characters at a given time.
-set synmaxcol=200
-set lazyredraw
-set splitbelow                                                              " New window goes below
-set splitright                                                              " New windows goes right
-set autoread                                                                " Auto refresh changed files
-" set cursorline                                                            " Highlight current line SLOW
-set autoindent                                                              " Copy indent from last line when starting new line.
-set expandtab                                                               " Expand tabs to spaces
-set modelines=0
-set shiftwidth=2                                                            " The # of spaces for indenting.
-set synmaxcol=1000
-set ttyscroll=10
-set tabstop=2                                                               " Tab key results in 2 spaces
-set nowrap                                                                  " turn off line wrapping
-set list                                                                    " toggle invisible characters
-set listchars=tab:→\ ,eol:¬,trail:⋅,extends:❯,precedes:❮
-set showbreak=↪
-set re=1                                                                    " Fix syntax regex too slow in Ruby files
-set number                                                                  " Show line numbers
-set relativenumber                                                          " Use relative line numbers. Current line is still in status bar.
-set hlsearch                                                                " Highlight search results
-set ignorecase                                                              " Ignore case of searches.
-set smartcase                                                               " Ignore 'ignorecase' if search patter contains uppercase characters.
-set smarttab                                                                " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
-set incsearch                                                               " Highlight dynamically as pattern is typed.
-set mouse=a                                                                 " Enable moouse in all in all modes.
-set pastetoggle=<leader>v                                                   " set paste toggle
-
-
-
-" ############################################
-" Powerline config
-" ############################################
-
-" set guifont=Inconsolata\ for\ Powerline:h15
-" let g:Powerline_symbols = 'fancy'
-" set encoding=utf-8 nobomb " BOM often causes trouble
-" set termencoding=utf-8
-" set t_Co=256
-" set fillchars+=stl:\ ,stlnc:\
-" set laststatus=2
-" if has("gui_running")
-"   let s:uname = system("uname")
-"   if s:uname == "Darwin\n"
-"     set guifont=Inconsolata\ for\ Powerline:h15
-"   endif
-" endif
-
-
+set clipboard=unnamed               " Share clipboard with OS
+set ttyfast                         " Send more characters at a given time.
+set synmaxcol=400                   " Text after this col is not highlighted
+set lazyredraw                      " Screen not redrawn while executing  macros
+" set splitbelow                      " New window goes below
+" set splitright                      " New windows goes right
+set autoread                        " Auto refresh changed files
+set cursorline                      " Highlight current line
+set autoindent                      " Keep indentation from last line when new line.
+set expandtab                       " Expand tabs to spaces
+" set modelines=0                     " Allow you to set variables specific to a file
+set shiftwidth=2                    " The # of spaces for indenting.
+" set ttyscroll=3
+set tabstop=2                       " Tab key results in 2 spaces
+set nowrap                          " turn off line wrapping
+set number                          " Show line numbers
+set relativenumber
+set hlsearch                        " Highlight search results
+set ignorecase                      " Ignore case of searches.
+set smartcase                       " Ignore 'ignorecase' if search patter contains uppercase characters.
+set smarttab                        " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
+set incsearch                       " Highlight dynamically as pattern is typed.
+set mouse=a                         " Enable moouse in all in all modes.
+set ttymouse=xterm2                 " Fixes mouse issue when running in Tmux
+set pastetoggle=<leader>v           " set paste toggle
+set backspace=indent,eol,start
+set re=0                            " prevent redraw exceeded issue with Typescript
 
 " ############################################
 " Automatic formatting
@@ -110,15 +93,11 @@ set pastetoggle=<leader>v                                                   " se
 augroup formattingcommands
   autocmd!
   autocmd BufWritePre *.rb   :%s/\s\+$//e
-  autocmd BufWritePre *.go   :%s/\s\+$//e
-  autocmd BufWritePre *.haml :%s/\s\+$//e
-  autocmd BufWritePre *.html :%s/\s\+$//e
-  autocmd BufWritePre *.scss :%s/\s\+$//e
-  autocmd BufWritePre *.slim :%s/\s\+$//e
+  autocmd BufWritePre *.js   :%s/\s\+$//e
+  autocmd BufWritePre *.ts   :%s/\s\+$//e
+  autocmd BufWritePre *.tsx  :%s/\s\+$//e
   au BufNewFile * set noeol
 augroup END
-
-
 
 " ############################################
 " Key mappings
@@ -126,17 +105,23 @@ augroup END
 "
 " Quick ESC
 imap jj <ESC>
+imap kk <ESC>
+
+" Edit vimr configuration file
+nnoremap <leader>ve :e $MYVIMRC<CR>
+" Reload vimr configuration file
+nnoremap <leader>vr :source $MYVIMRC<CR>
 
 " clear highlighted search
-noremap <space> :set hlsearch! hlsearch?<cr>
+noremap <leader>/ :set hlsearch! hlsearch?<cr>
+
+noremap <enter> :Goyo<cr>
 
 " Quicker window switching
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+" nnoremap <C-j> <C-w>j
+" nnoremap <C-k> <C-w>k
+" nnoremap <C-h> <C-w>h
+" nnoremap <C-l> <C-w>l
 
 " shortcuts to save
 nmap <leader>,                    :w<cr>
@@ -147,14 +132,16 @@ inoremap <silent> <C-S> <C-O>:update<CR>
 " format the entire file
 nmap <leader>fef ggVG=
 
-
 " Open new buffers
 nmap <leader>s<left>   :leftabove  vnew<cr>
 nmap <leader>s<right>  :rightbelow vnew<cr>
 nmap <leader>s<up>     :leftabove  new<cr>
 nmap <leader>s<down>   :rightbelow new<cr>
 
-" Tab between buffers
+" List buffers
+nnoremap <leader><Tab> :buffer<Space><Tab>
+
+" Tab between splits
 noremap <tab> <c-w><c-w>
 
 " remove extra whitespace
@@ -166,54 +153,106 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Resize buffers
-if bufwinnr(1)
-  nmap ˙ 3<C-W><
-  nmap ¬ 3<C-W>>
-  nmap ∆ 3<C-W>-
-  nmap ˚ 3<C-W>+
-endif
+nmap h 5<C-W><
+nmap l 5<C-W>>
+nmap k 5<C-W>-
+nmap j 5<C-W>+
 
+" Change splits from vert to horizontal and viceversa
+map <leader>th <C-w>t<C-w>H
+map <leader>tk <C-w>t<C-w>K
+
+" Open terminal
+map <leader>ttl :vert term<cr>
+map <leader>ttk :term<cr>
+
+" Move lines up and down
+" ∆ Option+J
+" ˚ Option+K
+nnoremap ∆ :m .+1<CR>==
+inoremap ∆ <Esc>:m .+1<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+nnoremap ˚ :m .-2<CR>==
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ˚ :m '<-2<CR>gv=gv
 
 
 " ############################################
 " Plugins configuration
 " ############################################
 
-" " NERDTree
+" Gutentags
+" set tags=./.tags,.tags;
+set tags=.tags;
+let g:gutentags_ctags_tagfile = '.tags'
+let g:gutentags_generate_on_new = 1
+let g:gutentags_file_list_command = {
+  \ 'markers': {
+     \ 'wp-admin': 'rg --files',
+     \ '.git': 'git ls-files',
+  \ },
+\ }
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+
+
+" Commenter
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+
+" Goyo
+let g:goyo_width = 160
+
+" FZF and RipGrep search
+" https://github.com/junegunn/fzf.vim
+" https://sidneyliebrand.medium.com/how-fzf-and-ripgrep-improved-my-workflow-61c7ca212861
+" https://github.com/junegunn/fzf.vim/issues/714
+" command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+" " [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+nnoremap <silent> <Leader>f :Rg<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>h :History<CR>
+nnoremap <Leader>t :BTags<CR>
+nnoremap <Leader>T :Tags<CR>
+
+" Lightline
+function! CocCurrentFunction()
+  return get(b:, 'coc_current_function', '')
+endfunction
+
+let g:lightline = { 'colorscheme': 'nord',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'cocstatus', 'currentfunction', 'gitbranch', 'readonly', 'filename', 'modified'] ]
+        \ },
+        \ 'component_function': {
+          \   'gitbranch': 'fugitive#head',
+          \   'cocstatus': 'coc#status',
+          \   'currentfunction': 'CocCurrentFunction'
+          \ },
+          \ }
+
+" NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
 let NERDTreeShowBookmarks=1
 let NERDTreeHijackNetrw=0
 
-" " CtrlP
-" nnoremap <silent>t :CtrlP<cr>
-" nnoremap <leader>b :CtrlPBuffer<CR>
-" nnoremap <leader>r :CtrlPMRUFiles<CR>
-" let g:ctrlp_working_path_mode = 'ra'
-" let g:ctrlp_by_filename = 0
-" let g:ctrlp_max_files = 15000
-" let g:ctrlp_max_depth = 10
-" let g:ctrlp_show_hidden = 1
-" " Sane Ignore For ctrlp
-" let g:ctrlp_custom_ignore = {
-"       \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$\|db\/migrate$\|node_modules$\|build$',
-"       \ 'file': '\.exe$\|\.so$\|\.dat$'
-"       \ }
-"
-" " ag search
-" nnoremap \ :Ag<SPACE>-ri<SPACE>
-"
-" " Rspec
-" map <Leader>t :call RunCurrentSpecFile()<CR>
-" map <Leader>s :call RunNearestSpec()<CR>
-" map <Leader>l :call RunLastSpec()<CR>
-" map <Leader>a :call RunAllSpecs()<CR>
-" let g:rspec_runner = "os_x_iterm2"
-" let g:rspec_command = "!bundle exec spring rspec --no-profile {spec}"
-"
-" " Fugitive
-" nmap <silent> <leader>gs :Gstatus<cr>
-" nmap <leader>ge :Gedit<cr>
-" nmap <silent><leader>gr :Gread<cr>
-" nmap <silent><leader>gb :Gblame<cr>
+" Fugitive
+nmap <silent> <leader>gs :Git<cr>
+nmap <silent> <leader>gb :Gblame<cr>
+nmap <silent> <leader>gl :Gclog<cr>
+nmap <silent> <leader>gc :Git commit<cr>
+
