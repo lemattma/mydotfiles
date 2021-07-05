@@ -17,6 +17,7 @@ files=(
   .gitignore_global
   .irbrc
   .hushlogin
+  .oh-my-zsh/custom/plugins/lemattma
 )
 
 for f in "${files[@]}" 
@@ -32,7 +33,7 @@ do
       mv ~/$f ~/$f-backup
     fi
 
-    ln -sv $(pwd)/$f ~
+    ln -sv $(pwd)/$f ~/$f
 
   fi
 done
