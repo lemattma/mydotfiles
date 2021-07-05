@@ -2,23 +2,37 @@
 cd `dirname "$0"`
 echo "Switched to: `pwd`"
 
-# git pull
-function syncAll() {
-  rsync --exclude ".gitignore" --exclude ".git/" --exclude ".DS_Store" --exclude "install.sh" --exclude "README.md" --exclude "iterm2" -av . ~
-}
+mkdir -p ~/.vim/swaps
+mkdir -p ~/.vim/undo
+mkdir -p ~/.vim/backups
+mkdir -p ~/.tmux/plugins
+touch ~/.z
 
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
-  syncAll
-else
-  read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    mkdir -p ~/.vim/swaps
-    mkdir -p ~/.vim/undo
-    touch ~/.z
-    
-    syncAll
+files=(
+  .vimrc 
+  .zshrc 
+  .tmux.conf 
+  .ctags.d 
+  .gitconfig
+  .gitignore_global
+  .irbrc
+)
+
+for f in "${files[@]}" 
+do
+  if [[ -h ~/$f ]]
+  then
+    ls -lh ~/$f
+  else
+
+    if [[ -d ~/$f ]] || [[ -f ~/$f ]]
+    then
+      echo "Moving folder $f to $f-backup"
+      mv ~/$f ~/$f-backup
+    fi
+
+    ln -sv $(pwd)/$f ~
+
   fi
-fi
+done
 
-unset syncAll

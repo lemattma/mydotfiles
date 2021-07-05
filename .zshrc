@@ -1,11 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/martin/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-
 # git clone https://github.com/dracula/zsh.git
 # cp -r zsh ~/.oh-my-zsh/custom/themes/dracula
 # ZSH_THEME="dracula/dracula"
@@ -29,7 +24,7 @@ plugins=(
     git 
     common-aliases 
     z 
-    zsh-autosuggestions 
+    zsh-autosuggestions
     zsh-syntax-highlighting
     lemattma
 )

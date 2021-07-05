@@ -39,8 +39,9 @@ set termguicolors
 " colorscheme dracula
 colorscheme nord
 set laststatus=2
+
 " transparent bg
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 " Change leader to a comma
 let mapleader=","
@@ -89,7 +90,6 @@ set re=0                            " prevent redraw exceeded issue with Typescr
 " ############################################
 " Automatic formatting
 " ############################################
-
 augroup formattingcommands
   autocmd!
   autocmd BufWritePre *.rb   :%s/\s\+$//e
@@ -105,7 +105,6 @@ augroup END
 "
 " Quick ESC
 imap jj <ESC>
-imap kk <ESC>
 
 " Edit vimr configuration file
 nnoremap <leader>ve :e $MYVIMRC<CR>
@@ -123,6 +122,11 @@ noremap <enter> :Goyo<cr>
 " nnoremap <C-h> <C-w>h
 " nnoremap <C-l> <C-w>l
 
+" delete current buffer
+noremap <leader>bb :bd<cr>
+" next buffer
+noremap <leader>mn :bn<cr>
+
 " shortcuts to save
 nmap <leader>,                    :w<cr>
 noremap <silent> <C-S>       :update<CR>
@@ -137,9 +141,6 @@ nmap <leader>s<left>   :leftabove  vnew<cr>
 nmap <leader>s<right>  :rightbelow vnew<cr>
 nmap <leader>s<up>     :leftabove  new<cr>
 nmap <leader>s<down>   :rightbelow new<cr>
-
-" List buffers
-nnoremap <leader><Tab> :buffer<Space><Tab>
 
 " Tab between splits
 noremap <tab> <c-w><c-w>
@@ -195,8 +196,6 @@ let g:gutentags_file_list_command = {
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-
-
 " Commenter
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
@@ -215,22 +214,22 @@ let g:goyo_width = 160
 
 " " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
-" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'relative': v:true } }
-let g:fzf_layout = { 'window': { 'width': 0.7, 'height': 0.6 } }
+let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.4 } }
 let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
 
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 nnoremap <silent> <Leader>f :Rg<CR>
-nnoremap <C-p> :Files<CR>
+nnoremap <leader>p :Files<CR>
+" nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>T :Tags<CR>
 
 " Lightline
-function! CocCurrentFunction()
-  return get(b:, 'coc_current_function', '')
-endfunction
+" function! CocCurrentFunction()
+"   return get(b:, 'coc_current_function', '')
+" endfunction
 
 let g:lightline = { 'colorscheme': 'nord',
       \ 'active': {
@@ -240,20 +239,22 @@ let g:lightline = { 'colorscheme': 'nord',
         \ 'component_function': {
           \   'gitbranch': 'fugitive#head',
           \   'cocstatus': 'coc#status',
-          \   'currentfunction': 'CocCurrentFunction'
           \ },
           \ }
+          " \   'currentfunction': 'CocCurrentFunction'
 
 " NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
 let NERDTreeShowBookmarks=1
-let NERDTreeHijackNetrw=0
+let NERDTreeHijackNetrw=1
 
 " Fugitive
 nmap <silent> <leader>gs :Git<cr>
 nmap <silent> <leader>gb :Gblame<cr>
 nmap <silent> <leader>gl :Gclog<cr>
 nmap <silent> <leader>gc :Git commit<cr>
+nmap <silent> <leader>gp :Git push<cr>
 
