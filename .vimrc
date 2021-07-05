@@ -41,7 +41,7 @@ colorscheme nord
 set laststatus=2
 
 " transparent bg
-" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 
 " Change leader to a comma
 let mapleader=","
