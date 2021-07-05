@@ -66,8 +66,8 @@ set clipboard=unnamed               " Share clipboard with OS
 set ttyfast                         " Send more characters at a given time.
 set synmaxcol=400                   " Text after this col is not highlighted
 set lazyredraw                      " Screen not redrawn while executing  macros
-" set splitbelow                      " New window goes below
-" set splitright                      " New windows goes right
+set splitbelow                      " New window goes below
+set splitright                      " New windows goes right
 set autoread                        " Auto refresh changed files
 set cursorline                      " Highlight current line
 set autoindent                      " Keep indentation from last line when new line.
