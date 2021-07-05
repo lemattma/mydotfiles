@@ -2,11 +2,17 @@
 cd `dirname "$0"`
 echo "Switched to: `pwd`"
 
-mkdir -p ~/.vim/swaps
-mkdir -p ~/.vim/undo
-mkdir -p ~/.vim/backups
-mkdir -p ~/.tmux/plugins
+# mkdir -p ~/.vim/swaps
+# mkdir -p ~/.vim/undo
+# mkdir -p ~/.vim/backups
 touch ~/.z
+
+mkdir -p ~/.tmux/plugins
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# brew install vim
+# brew install tmux gotop neofetch
+# Font: https://fonts.google.com/specimen/Source+Code+Pro
+# brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 files=(
   .vimrc 
