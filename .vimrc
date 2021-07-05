@@ -56,9 +56,12 @@ set hidden                          " Enables hidden buffers
 set path+=**                        " Recursive find
 set wildmenu                        " Hitting TAB in command mode will show possible completions above command line.
 set wildmode=list:full              " List and cycle through matches
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-set undodir=~/.vim/undo
+" set backupdir=~/.vim/backups
+" set directory=~/.vim/swaps
+" set undodir=~/.vim/undo
+set nobackup
+set nowritebackup
+set noswapfile
 set clipboard=unnamed               " Share clipboard with OS
 set ttyfast                         " Send more characters at a given time.
 set synmaxcol=400                   " Text after this col is not highlighted
