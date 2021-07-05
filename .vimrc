@@ -25,6 +25,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ludovicchabant/vim-gutentags.git'
 Plugin 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
+Plugin 'farmergreg/vim-lastplace.git'
 " Plugin 'tpope/vim-sensible'
 " Plugin 'rking/ag.vim'
 " Plugin 'terryma/vim-multiple-cursors'
@@ -41,7 +42,12 @@ colorscheme nord
 set laststatus=2
 
 " transparent bg
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" Prevent colorschemes from changing background color of screen, line numbers or current line
+autocmd ColorScheme * hi Normal ctermbg=NONE guibg=NONE
+autocmd ColorScheme * hi CursorLine cterm=None ctermbg=Black ctermfg=None
+autocmd ColorScheme * hi CursorLineNr ctermbg=Black ctermfg=None
+autocmd ColorScheme * hi LineNr cterm=None ctermbg=None ctermfg=DarkGray
 
 " Change leader to a comma
 let mapleader=","
@@ -55,7 +61,8 @@ syntax on
 set hidden                          " Enables hidden buffers
 set path+=**                        " Recursive find
 set wildmenu                        " Hitting TAB in command mode will show possible completions above command line.
-set wildmode=list:full              " List and cycle through matches
+set wildmode=longest,list,full
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 " set backupdir=~/.vim/backups
 " set directory=~/.vim/swaps
 " set undodir=~/.vim/undo
@@ -64,6 +71,7 @@ set nowritebackup
 set noswapfile
 set clipboard=unnamed               " Share clipboard with OS
 set ttyfast                         " Send more characters at a given time.
+" set ttyscroll=3
 set synmaxcol=400                   " Text after this col is not highlighted
 set lazyredraw                      " Screen not redrawn while executing  macros
 set splitbelow                      " New window goes below
@@ -74,21 +82,31 @@ set autoindent                      " Keep indentation from last line when new l
 set expandtab                       " Expand tabs to spaces
 " set modelines=0                     " Allow you to set variables specific to a file
 set shiftwidth=2                    " The # of spaces for indenting.
-" set ttyscroll=3
+set softtabstop=2                   " insert mode tab and backspace use 2 spaces
 set tabstop=2                       " Tab key results in 2 spaces
 set nowrap                          " turn off line wrapping
 set number                          " Show line numbers
 set relativenumber
+set list                           " show trailing whitespace
+set listchars=tab:▸\ ,trail:▫
+set ruler
 set hlsearch                        " Highlight search results
 set ignorecase                      " Ignore case of searches.
 set smartcase                       " Ignore 'ignorecase' if search patter contains uppercase characters.
 set smarttab                        " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
 set incsearch                       " Highlight dynamically as pattern is typed.
 set mouse=a                         " Enable moouse in all in all modes.
-set ttymouse=xterm2                 " Fixes mouse issue when running in Tmux
 set pastetoggle=<leader>v           " set paste toggle
 set backspace=indent,eol,start
 set re=0                            " prevent redraw exceeded issue with Typescript
+
+if exists('$TMUX')
+  set ttymouse=xterm2
+endif
+
+" Custom indentation size per file type
+autocmd FileType kt setlocal tabstop=4 shiftwidth=4
+autocmd FileType xml setlocal tabstop=4 shiftwidth=4
 
 " ############################################
 " Automatic formatting
@@ -230,21 +248,35 @@ nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>T :Tags<CR>
 
 " Lightline
-" function! CocCurrentFunction()
-"   return get(b:, 'coc_current_function', '')
-" endfunction
-
-let g:lightline = { 'colorscheme': 'nord',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-        \             [ 'cocstatus', 'currentfunction', 'gitbranch', 'readonly', 'filename', 'modified'] ]
-        \ },
-        \ 'component_function': {
-          \   'gitbranch': 'fugitive#head',
-          \   'cocstatus': 'coc#status',
-          \ },
-          \ }
-          " \   'currentfunction': 'CocCurrentFunction'
+let g:lightline = {
+  \'colorscheme': 'nord',
+  \ 'active': {
+  \   'left':  [ [ 'mode', 'paste' ],
+  \              [ 'filename', 'modified'] ],
+  \   'right': [ [ 'filetype' ],
+  \              [ 'gitbranch', 'readonly' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'fugitive#head',
+  \ },
+  \ }
+let g:lightline.mode_map = {
+  \ 'n' : 'N',
+  \ 'i' : 'I',
+  \ 'R' : 'R',
+  \ 'v' : 'V',
+  \ 'V' : 'V-LINE',
+  \ "\<C-v>": 'V-BLOCK',
+  \ 'c' : 'C',
+  \ 's' : 'S',
+  \ 'S' : 'S-LINE',
+  \ "\<C-s>": 'S-BLOCK',
+  \ 't': 'T',
+  \ }
+let g:lightline#gitdiff#indicator_added    = '+'
+let g:lightline#gitdiff#indicator_deleted  = '-'
+let g:lightline#gitdiff#indicator_modified = 'Δ'
+let g:lightline#gitdiff#separator          = ' '
 
 " NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
@@ -260,4 +292,9 @@ nmap <silent> <leader>gb :Gblame<cr>
 nmap <silent> <leader>gl :Gclog<cr>
 nmap <silent> <leader>gc :Git commit<cr>
 nmap <silent> <leader>gp :Git push<cr>
+
+" Last Place
+let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
+let g:lastplace_ignore_buftype = "quickfix,nofile,help"
+let g:lastplace_open_folds = 0
 
