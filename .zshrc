@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/martin/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # git clone https://github.com/dracula/zsh.git
 # cp -r zsh ~/.oh-my-zsh/custom/themes/dracula
