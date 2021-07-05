@@ -16,6 +16,7 @@ files=(
   .gitconfig
   .gitignore_global
   .irbrc
+  .hushlogin
 )
 
 for f in "${files[@]}" 
