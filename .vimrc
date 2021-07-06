@@ -37,8 +37,8 @@ call vundle#end()
 
 " Theme
 set termguicolors
-" colorscheme dracula
 colorscheme nord
+highlight Comment cterm=italic gui=italic
 set laststatus=2
 
 " transparent bg
@@ -175,10 +175,10 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Resize buffers
-nmap h 5<C-W><
-nmap l 5<C-W>>
-nmap k 5<C-W>-
-nmap j 5<C-W>+
+nmap <left> 5<C-W><
+nmap <right> 5<C-W>>
+nmap <up> 5<C-W>-
+nmap <down> 5<C-W>+
 
 " Change splits from vert to horizontal and viceversa
 map <leader>th <C-w>t<C-w>H

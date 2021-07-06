@@ -14,6 +14,15 @@ mkdir -p ~/.tmux/plugins
 # Font: https://fonts.google.com/specimen/Source+Code+Pro
 # brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
+# Alacritty
+# brew install alacritty
+# git clone https://github.com/alacritty/alacritty.git
+# cd alacritty
+# sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
+# cd .. && rm -rf alacritty
+# defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+# defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
+
 files=(
   .vimrc 
   .zshrc 
@@ -24,6 +33,7 @@ files=(
   .irbrc
   .hushlogin
   .oh-my-zsh/custom/plugins/lemattma
+  .config/alacritty/alacritty.yml
 )
 
 for f in "${files[@]}" 
