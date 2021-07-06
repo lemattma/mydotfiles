@@ -144,9 +144,10 @@ noremap <enter> :Goyo<cr>
 " nnoremap <C-l> <C-w>l
 
 " delete current buffer
-noremap <leader>bb :bd<cr>
-" next buffer
-noremap <leader>mn :bn<cr>
+noremap ∑ :bd<cr>
+" prev/next buffer
+noremap <M-right> :bn<cr>
+noremap <M-left> :bp<cr>
 
 " shortcuts to save
 nmap <leader>,                    :w<cr>
@@ -175,10 +176,10 @@ nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
 " Resize buffers
-nmap <left> 5<C-W><
-nmap <right> 5<C-W>>
-nmap <up> 5<C-W>-
-nmap <down> 5<C-W>+
+nmap <leader><left> 5<C-W><
+nmap <leader><right> 5<C-W>>
+nmap <leader><up> 5<C-W>-
+nmap <leader><down> 5<C-W>+
 
 " Change splits from vert to horizontal and viceversa
 map <leader>th <C-w>t<C-w>H
