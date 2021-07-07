@@ -281,6 +281,7 @@ let g:lightline#gitdiff#separator          = ' '
 
 " NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>c :NERDTreeFind<CR>
 let NERDTreeShowHidden=1
 let NERDTreeHighlightCursorline=1
 let NERDTreeIgnore = ['tmp', '.yardoc', 'pkg']
