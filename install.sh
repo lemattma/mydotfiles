@@ -32,6 +32,8 @@ files=(
   .gitignore_global
   .irbrc
   .hushlogin
+  .yabairc
+  .skhdrc
   .oh-my-zsh/custom/plugins/lemattma
   .config/alacritty/alacritty.yml
 )
