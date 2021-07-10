@@ -249,35 +249,25 @@ nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>T :Tags<CR>
 
 " Lightline
-let g:lightline = {
-  \'colorscheme': 'nord',
-  \ 'active': {
-  \   'left':  [ [ 'mode', 'paste' ],
-  \              [ 'filename', 'modified'] ],
-  \   'right': [ [ 'filetype' ],
-  \              [ 'gitbranch', 'readonly' ] ]
-  \ },
-  \ 'component_function': {
-  \   'gitbranch': 'fugitive#head',
-  \ },
-  \ }
-let g:lightline.mode_map = {
-  \ 'n' : 'N',
-  \ 'i' : 'I',
-  \ 'R' : 'R',
-  \ 'v' : 'V',
-  \ 'V' : 'V-LINE',
-  \ "\<C-v>": 'V-BLOCK',
-  \ 'c' : 'C',
-  \ 's' : 'S',
-  \ 'S' : 'S-LINE',
-  \ "\<C-s>": 'S-BLOCK',
-  \ 't': 'T',
-  \ }
+set noshowmode
 let g:lightline#gitdiff#indicator_added    = '+'
 let g:lightline#gitdiff#indicator_deleted  = '-'
 let g:lightline#gitdiff#indicator_modified = 'Δ'
 let g:lightline#gitdiff#separator          = ' '
+let g:lightline = {
+  \   'colorscheme': 'nord',
+  \   'active': {
+  \     'left':  [ [ 'mode', 'paste' ],
+  \                [ 'gitbranch' ],
+  \                [ 'filename', 'modified'] ],
+  \     'right': [ [ 'lineinfo' ],
+  \                [ 'percent' ],
+  \                [ 'filetype', 'fileformat', 'fileencoding' ] ]
+  \   },
+  \   'component_function': {
+  \     'gitbranch': 'fugitive#head',
+  \   }
+  \}
 
 " NERDTree
 nmap <leader>n :NERDTreeToggle<CR>

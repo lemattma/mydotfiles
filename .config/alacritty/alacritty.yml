@@ -105,53 +105,17 @@ window:
 
 # Font configuration
 font:
-  # Normal (roman) font face
   normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    family: 'Source Code Pro'
-
-    # The `style` can be specified to pick a specific face.
+    family: 'Roboto Mono for Powerline'
     style: Regular
-
-  # Bold font face
   bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-    family: 'Source Code Pro'
-
-    # The `style` can be specified to pick a specific face.
+    family: 'Roboto Mono for Powerline'
     style: Bold
-
-  # Italic font face
   italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-    family: 'Source Code Pro'
-
-    # The `style` can be specified to pick a specific face.
+    family: 'Roboto Mono for Powerline'
     style: Italic
-
-  # Bold italic font face
   bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    #family: monospace
-    family: 'Source Code Pro'
-
-    # The `style` can be specified to pick a specific face.
+    family: 'Roboto Mono for Powerline'
     style: Bold Italic
 
   # Point size
@@ -162,14 +126,14 @@ font:
   # spacing.
   offset:
    x: 0
-   y: 5
+   y: 9
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
   glyph_offset:
    x: 0
-   y: 6
+   y: 0
 
   # Thin stroke font rendering (macOS only)
   #
