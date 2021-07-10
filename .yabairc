@@ -29,7 +29,7 @@ yabai -m config mouse_follows_focus         on
 yabai -m config focus_follows_mouse         off
 
 yabai -m config window_topmost              off
-yabai -m config window_opacity              off
+yabai -m config window_opacity              on
 yabai -m config window_opacity_duration     0.0
 yabai -m config window_shadow               off
 
@@ -40,7 +40,7 @@ yabai -m config normal_window_border_color  "0x00FFFFFF"
 yabai -m config insert_feedback_color       "0xF081A1C1"
 
 yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       0.80
+yabai -m config normal_window_opacity       0.9
 yabai -m config split_ratio                 0.50
 
 yabai -m config auto_balance                off
@@ -62,6 +62,7 @@ yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
 yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Alacritty" app="Alacritty" opacity=0.85
 
 # ===== Signals ================================
 
