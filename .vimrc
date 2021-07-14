@@ -279,11 +279,12 @@ let NERDTreeShowBookmarks=1
 let NERDTreeHijackNetrw=1
 
 " Fugitive
-nmap <silent> <leader>gs :Git<cr>
-nmap <silent> <leader>gb :Gblame<cr>
-nmap <silent> <leader>gl :Gclog<cr>
-nmap <silent> <leader>gc :Git commit<cr>
-nmap <silent> <leader>gp :Git push<cr>
+nmap <silent> <leader>gac :Git add %<cr>
+nmap <silent> <leader>gs  :Git<cr>
+nmap <silent> <leader>gb  :Gblame<cr>
+nmap <silent> <leader>gl  :Gclog<cr>
+nmap <silent> <leader>gc  :Git commit<cr>
+nmap <silent> <leader>gp  :Git push<cr>
 
 " Last Place
 let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"

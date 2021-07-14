@@ -1,5 +1,10 @@
-# opens iTerm2
-# alt - return : "${HOME}"/.config/yabai/scripts/open_iterm2.sh
+# https://github.com/koekeishiya/dotfiles/blob/master/skhd/skhdrc
+#
+# opens shell
+# alt - return : osascript -e "tell application \"Alacritty\" to activate" -e "tell application \"System Events\" to keystroke \"n\" using command down"
+# alt - return : "${HOME}"/open-terminal.sh
+alt - return : alacritty
+lctrl + alt - return : open ~
 
 # Show system statistics
 fn + lalt - 1 : "${HOME}"/.config/yabai/scripts/show_cpu.sh
@@ -27,6 +32,7 @@ alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
+alt - p : yabai -m display --focus recent
 
 # Moving windows
 shift + alt - h : yabai -m window --warp west
@@ -36,6 +42,7 @@ shift + alt - l : yabai -m window --warp east
 
 # Create new desktop
 shift + alt - c : yabai -m space --create; yabai -m space --focus last
+lctrl + shift + alt - c : yabai -m space --create; yabai -m window --space last; yabai -m space --focus last
 
 # Move and focus container to desktop
 shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
@@ -90,4 +97,12 @@ shift + lctrl + alt - r : \
 # Make window native fullscreen
 alt - f         : yabai -m window --toggle zoom-fullscreen
 shift + alt - f : yabai -m window --toggle native-fullscreen
+
+# Toogle all windows fullscreen
+lctrl + alt - f : yabai -m query --windows --space \
+    | jq -re '.[] | select(."zoom-fullscreen" == 0) | .id' \
+    | xargs -I{} yabai -m window {} --toggle zoom-fullscreen
+lctrl + shift + alt - f : yabai -m query --windows --space \
+    | jq -re '.[] | select(."zoom-fullscreen" == 1) | .id' \
+    | xargs -I{} yabai -m window {} --toggle zoom-fullscreen
 

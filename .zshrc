@@ -45,7 +45,10 @@ export EDITOR='vim'
 
 # export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+# export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+alias mysql="/usr/local/opt/mysql-client/bin/mysql"
+alias mysqldump="/usr/local/opt/mysql-client/bin/mysqldump"
 
 # eval "$(rbenv init -)"
 # _evalcache rbenv init -
