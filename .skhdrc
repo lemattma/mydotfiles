@@ -13,7 +13,6 @@ fn + lalt - 3 : "${HOME}"/.config/yabai/scripts/show_bat.sh
 fn + lalt - 4 : "${HOME}"/.config/yabai/scripts/show_disk.sh
 fn + lalt - 5 : "${HOME}"/.config/yabai/scripts/show_song.sh
 
-
 # fast focus desktop
 lctrl - left : yabai -m space --focus prev
 lctrl - right : yabai -m space --focus next
@@ -27,11 +26,15 @@ lctrl - 6  : yabai -m space --focus 6
 lctrl - 7  : yabai -m space --focus 7
 lctrl - 8  : yabai -m space --focus 8
 
+# Stack <> BSP
+lctrl + alt + shift - s : yabai -m space --layout stack
+lctrl + alt + shift - b : yabai -m space --layout bsp
+
 # Navigation
-alt - h : yabai -m window --focus west
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - l : yabai -m window --focus east
+alt - h : yabai -m window --focus prev
+alt - l : yabai -m window --focus next
+alt - r : yabai -m window --focus stack.next
+alt - f : yabai -m window --focus stack.prev
 alt - p : yabai -m display --focus recent
 
 # Moving windows
