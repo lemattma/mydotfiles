@@ -27,8 +27,10 @@ lctrl - 7  : yabai -m space --focus 7
 lctrl - 8  : yabai -m space --focus 8
 
 # Stack <> BSP
-lctrl + alt + shift - s : yabai -m space --layout stack
-lctrl + alt + shift - b : yabai -m space --layout bsp
+lctrl + alt + shift - s : yabai -m space --layout stack; \
+    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
+lctrl + alt + shift - b : yabai -m space --layout bsp; \
+    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
 
 # Navigation
 alt - h : yabai -m window --focus prev
@@ -47,7 +49,7 @@ shift + alt - l : yabai -m window --warp east
 shift + alt - c : yabai -m space --create; yabai -m space --focus last
 lctrl + shift + alt - c : yabai -m space --create; yabai -m window --space last; yabai -m space --focus last
 
-# Move and focus container to desktop
+# Move and focus window to desktop
 shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
 shift + alt - n : yabai -m window --space next; yabai -m space --focus next
 shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
@@ -87,25 +89,20 @@ shift + lctrl + alt - k : yabai -m window --insert north
 shift + lctrl + alt - l : yabai -m window --insert east
 
 # Float / Unfloat window
-shift + alt - space : \
-    yabai -m window --toggle float; \
-    yabai -m window --toggle border
+shift + alt - space : yabai -m window --toggle float
 
 # Restart Yabai
-shift + lctrl + alt - r : \
-    /usr/bin/env osascript <<< \
-        "display notification \"Restarting Yabai\" with title \"Yabai\""; \
+shift + lctrl + alt - r : /usr/bin/env osascript <<< \
+    "display notification \"Restarting Yabai\" with title \"Yabai\""; \
     launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
 # Make window native fullscreen
-alt - f         : yabai -m window --toggle zoom-fullscreen
-shift + alt - f : yabai -m window --toggle native-fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
 
 # Toogle all windows fullscreen
-lctrl + alt - f : yabai -m query --windows --space \
-    | jq -re '.[] | select(."zoom-fullscreen" == 0) | .id' \
-    | xargs -I{} yabai -m window {} --toggle zoom-fullscreen
-lctrl + shift + alt - f : yabai -m query --windows --space \
-    | jq -re '.[] | select(."zoom-fullscreen" == 1) | .id' \
-    | xargs -I{} yabai -m window {} --toggle zoom-fullscreen
+lctrl + alt - f : yabai -m query --windows --space | jq -re '.[] | select(."zoom-fullscreen" == 0) | .id' \
+    | xargs -I {} yabai -m window {} --toggle zoom-fullscreen
+
+lctrl + shift + alt - f : yabai -m query --windows --space | jq -re '.[] | select(."zoom-fullscreen" == 1) | .id' \
+    | xargs -I {} yabai -m window {} --toggle zoom-fullscreen
 
