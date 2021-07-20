@@ -146,8 +146,8 @@ noremap <enter> :Goyo<cr>
 " delete current buffer
 noremap ∑ :bd<cr>
 " prev/next buffer
-noremap <M-right> :bn<cr>
-noremap <M-left> :bp<cr>
+noremap <M-down> :bn<cr>
+noremap <M-up> :bp<cr>
 
 " shortcuts to save
 nmap <leader>,                    :w<cr>
