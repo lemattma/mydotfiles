@@ -236,8 +236,8 @@ let g:goyo_width = 160
 
 " " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
-let g:fzf_layout = { 'window': { 'width': 0.5, 'height': 0.4 } }
-let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-/']
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
+let g:fzf_preview_window = ['up:50%', 'ctrl-/']
 
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 nnoremap <silent> <Leader>f :Rg<CR>
