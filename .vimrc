@@ -14,7 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'                    " Navigator
 Plugin 'neoclide/coc.nvim'                     " Conquer of completion
 Plugin 'sheerun/vim-polyglot'                  " Collection of syntax plugins
-Plugin 'dense-analysis/ale'
+Plugin 'dense-analysis/ale'                    " Asynchronous Lint Engine
 Plugin 'junegunn/fzf.vim'
 " Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'arcticicestudio/nord-vim.git'
@@ -135,7 +135,7 @@ nnoremap <leader>vr :source $MYVIMRC<CR>
 " clear highlighted search
 noremap <leader>/ :set hlsearch! hlsearch?<cr>
 
-noremap <enter> :Goyo<cr>
+" noremap <enter> :Goyo<cr>
 
 " Quicker window switching
 " nnoremap <C-j> <C-w>j
