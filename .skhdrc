@@ -35,8 +35,8 @@ lctrl + alt + shift - b : yabai -m space --layout bsp; \
 # Navigation
 alt - h : yabai -m window --focus prev
 alt - l : yabai -m window --focus next
-cmd + alt - h : yabai -m window --focus stack.prev
-cmd + alt - l : yabai -m window --focus stack.next
+lctrl + cmd + alt - h : yabai -m window --focus stack.prev
+lctrl + cmd + alt - l : yabai -m window --focus stack.next
 alt - p : yabai -m display --focus recent
 
 # Moving windows
