@@ -54,7 +54,8 @@ yabai -m config external_bar all:32:0
 
 # ===== Rules ==================================
 
-yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+# yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 yabai -m rule --add label="Transmit" app="^Transmit$" title="(General|Sync|Files|Transfers|Cloud|Rules|Keys|Advanced|Activity)$" manage=off
 yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
@@ -65,7 +66,10 @@ yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="Alfred Preferences" title="Alfred Preferences" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-yabai -m rule --add label="Alacritty" app="Alacritty" opacity=0.85
+yabai -m rule --add label="Fantastical" app="^Fantastical.*$" manage=off
+yabai -m rule --add label="Things" app="^Things.*$" manage=off
+yabai -m rule --add label="Zoom" app="^zoom.us$" title="^Zoom$" manage=off
+yabai -m rule --add label="Cisco AnyConnect" app="^Cisco AnyConnect" manage=off
 
 # ===== Signals ================================
 

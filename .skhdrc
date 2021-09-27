@@ -3,8 +3,8 @@
 # opens shell
 # alt - return : osascript -e "tell application \"Alacritty\" to activate" -e "tell application \"System Events\" to keystroke \"n\" using command down"
 # alt - return : "${HOME}"/open-terminal.sh
-alt - return : alacritty
-lctrl + alt - return : open ~
+# alt - return : alacritty
+lctrl + alt + cmd - return : open -n ~
 
 # Show system statistics
 fn + lalt - 1 : "${HOME}"/.config/yabai/scripts/show_cpu.sh
@@ -105,4 +105,3 @@ lctrl + alt - f : yabai -m query --windows --space | jq -re '.[] | select(."zoom
 
 lctrl + shift + alt - f : yabai -m query --windows --space | jq -re '.[] | select(."zoom-fullscreen" == 1) | .id' \
     | xargs -I {} yabai -m window {} --toggle zoom-fullscreen
-
