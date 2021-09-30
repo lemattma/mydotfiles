@@ -17,7 +17,7 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # ===== Tiling setting =========================
 
-yabai -m config layout                      bsp
+yabai -m config layout                      stack
 
 yabai -m config top_padding                 6
 yabai -m config bottom_padding              6
@@ -25,7 +25,7 @@ yabai -m config left_padding                6
 yabai -m config right_padding               6
 yabai -m config window_gap                  6
 
-yabai -m config mouse_follows_focus         on
+yabai -m config mouse_follows_focus         off
 yabai -m config focus_follows_mouse         off
 
 yabai -m config window_topmost              off
@@ -40,7 +40,7 @@ yabai -m config normal_window_border_color  "0x00FFFFFF"
 yabai -m config insert_feedback_color       "0xF081A1C1"
 
 yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       0.9
+yabai -m config normal_window_opacity       1.0
 yabai -m config split_ratio                 0.50
 
 yabai -m config auto_balance                off
@@ -68,6 +68,8 @@ yabai -m rule --add label="Alfred Preferences" title="Alfred Preferences" manage
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Fantastical" app="^Fantastical.*$" manage=off
 yabai -m rule --add label="Things" app="^Things.*$" manage=off
+yabai -m rule --add label="iStat Menus" app="iStat Menus" manage=off
+yabai -m rule --add label="Bartender" app="Bartender" manage=off
 yabai -m rule --add label="Zoom" app="^zoom.us$" title="^Zoom$" manage=off
 yabai -m rule --add label="Cisco AnyConnect" app="^Cisco AnyConnect" manage=off
 
@@ -85,4 +87,3 @@ yabai -m signal --add event=window_title_changed action="${ubersicht_spaces_refr
 set +x
 
 printf "yabai: configuration loaded...\\n"
-

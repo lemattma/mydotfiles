@@ -13,10 +13,12 @@ fn + lalt - 3 : "${HOME}"/.config/yabai/scripts/show_bat.sh
 fn + lalt - 4 : "${HOME}"/.config/yabai/scripts/show_disk.sh
 fn + lalt - 5 : "${HOME}"/.config/yabai/scripts/show_song.sh
 
-# fast focus desktop
+# Display Navigation
+lctrl + cmd + alt - m : yabai -m display --focus recent
+
+# Space Navigation
 lctrl - left : yabai -m space --focus prev
 lctrl - right : yabai -m space --focus next
-# lctrl - up : yabai -m space --focus recent
 lctrl - 1  : yabai -m space --focus 1
 lctrl - 2  : yabai -m space --focus 2
 lctrl - 3  : yabai -m space --focus 3
@@ -26,18 +28,11 @@ lctrl - 6  : yabai -m space --focus 6
 lctrl - 7  : yabai -m space --focus 7
 lctrl - 8  : yabai -m space --focus 8
 
-# Stack <> BSP
-lctrl + alt + shift - s : yabai -m space --layout stack; \
-    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
-lctrl + alt + shift - b : yabai -m space --layout bsp; \
-    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
-
-# Navigation
-alt - h : yabai -m window --focus prev
-alt - l : yabai -m window --focus next
-lctrl + cmd + alt - h : yabai -m window --focus stack.prev
-lctrl + cmd + alt - l : yabai -m window --focus stack.next
-alt - p : yabai -m display --focus recent
+# Window Navigation
+lctrl + cmd + alt - k : yabai -m window --focus prev
+lctrl + cmd + alt - l : yabai -m window --focus next
+lctrl + cmd + alt - p : yabai -m window --focus stack.prev
+lctrl + cmd + alt - o : yabai -m window --focus stack.next
 
 # Moving windows
 shift + alt - h : yabai -m window --warp west
@@ -45,11 +40,7 @@ shift + alt - j : yabai -m window --warp south
 shift + alt - k : yabai -m window --warp north
 shift + alt - l : yabai -m window --warp east
 
-# Create new desktop
-shift + alt - c : yabai -m space --create; yabai -m space --focus last
-lctrl + shift + alt - c : yabai -m space --create; yabai -m window --space last; yabai -m space --focus last
-
-# Move and focus window to desktop
+# Move window to desktop
 shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
 shift + alt - n : yabai -m window --space next; yabai -m space --focus next
 shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
@@ -90,6 +81,26 @@ shift + lctrl + alt - l : yabai -m window --insert east
 
 # Float / Unfloat window
 shift + alt - space : yabai -m window --toggle float
+
+# Stack / BSP / Float
+lctrl + alt + shift - s : yabai -m space --layout stack; \
+    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
+lctrl + alt + shift - b : yabai -m space --layout bsp; \
+    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
+lctrl + alt + shift - f : yabai -m space --layout float; \
+    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
+
+# Create new desktop
+shift + alt - o : yabai -m space --move prev; \
+    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
+shift + alt - p : yabai -m space --move next; \
+    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
+shift + alt - d : yabai -m space --destroy; \
+    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
+shift + alt - c : yabai -m space --create; \
+    osascript -e 'tell application id "tracesOf.Uebersicht" to refresh widget id "simple-bar-spaces-jsx"'
+# Create new desktop and move current window
+lctrl + shift + alt - c : yabai -m space --create; yabai -m window --space last; yabai -m space --focus last
 
 # Restart Yabai
 shift + lctrl + alt - r : /usr/bin/env osascript <<< \
