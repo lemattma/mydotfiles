@@ -41,8 +41,8 @@ shift + alt - k : yabai -m window --warp north
 shift + alt - l : yabai -m window --warp east
 
 # Move window to desktop
-shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
-shift + alt - n : yabai -m window --space next; yabai -m space --focus next
+# shift + alt - p : yabai -m window --space prev; yabai -m space --focus prev
+# shift + alt - n : yabai -m window --space next; yabai -m space --focus next
 shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
 shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
 shift + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
