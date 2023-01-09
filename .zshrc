@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -14,17 +16,14 @@ ZSH_THEME="apple"
 # git clone https://github.com/mroth/evalcache ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/evalcache
 # git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/joshskidmore/zsh-fzf-history-search ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-fzf-history-search
 
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true
-export NVM_DIR="/usr/local/opt/nvm/"
-
-# plugins=(git common-aliases z lemattma zsh-nvm evalcache)
 plugins=(
-    git 
-    common-aliases 
-    z 
+    git
+    common-aliases
+    z
     zsh-autosuggestions
+    zsh-fzf-history-search # https://github.com/joshskidmore/zsh-fzf-history-search
     zsh-syntax-highlighting
     lemattma
 )
@@ -66,16 +65,14 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 
 source ~/.fzf.zsh
 
-alias ctags="`brew --prefix`/bin/ctags"
+# alias ctags="`brew --prefix`/bin/ctags"
 
-HOMEBREW_NO_AUTO_UPDATE=1
+# HOMEBREW_NO_AUTO_UPDATE=1
 
 timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
 }
-
-# neofetch
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
@@ -83,3 +80,17 @@ timezsh() {
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+eval "$(fnm env --use-on-cd)"
+
+# python path
+export PATH=/opt/homebrew/opt/python@3.10/libexec/bin:$PATH
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# pyenv-virtualenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# zprof

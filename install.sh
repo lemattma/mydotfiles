@@ -2,12 +2,13 @@
 cd `dirname "$0"`
 echo "Switched to: `pwd`"
 
-# mkdir -p ~/.vim/swaps
-# mkdir -p ~/.vim/undo
-# mkdir -p ~/.vim/backups
+mkdir -p ~/.vim/swaps
+mkdir -p ~/.vim/undo
+mkdir -p ~/.vim/backups
 touch ~/.z
 
 mkdir -p ~/.tmux/plugins
+mkdir -p ~/.config/alacritty
 # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # brew install vim
 # brew install tmux gotop neofetch
@@ -24,10 +25,10 @@ mkdir -p ~/.tmux/plugins
 # defaults -currentHost write -globalDomain AppleFontSmoothing -int 2
 
 files=(
-  .vimrc 
-  .zshrc 
-  .tmux.conf 
-  .ctags.d 
+  .vimrc
+  .zshrc
+  .tmux.conf
+  .ctags.d
   .gitconfig
   .gitignore_global
   .irbrc
@@ -38,7 +39,7 @@ files=(
   .config/alacritty/alacritty.yml
 )
 
-for f in "${files[@]}" 
+for f in "${files[@]}"
 do
   if [[ -h ~/$f ]]
   then
@@ -55,4 +56,3 @@ do
 
   fi
 done
-
