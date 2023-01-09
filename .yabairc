@@ -69,6 +69,8 @@ yabai -m rule --add label="About This Mac" app="System Information" title="About
 yabai -m rule --add label="Fantastical" app="^Fantastical.*$" manage=off
 yabai -m rule --add label="Things" app="^Things.*$" manage=off
 yabai -m rule --add label="iStat Menus" app="iStat Menus" manage=off
+yabai -m rule --add label="VLC" app="VLC" manage=off
+yabai -m rule --add label="WD Drive Utilities" app="WD Drive Utilities.*$" manage=off
 yabai -m rule --add label="Bartender" app="Bartender" manage=off
 yabai -m rule --add label="Zoom" app="^zoom.us$" title="^Zoom$" manage=off
 yabai -m rule --add label="Cisco AnyConnect" app="^Cisco AnyConnect" manage=off

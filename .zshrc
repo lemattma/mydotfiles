@@ -48,11 +48,7 @@ export EDITOR='vim'
 
 alias mysql="/usr/local/opt/mysql-client/bin/mysql"
 alias mysqldump="/usr/local/opt/mysql-client/bin/mysqldump"
-
 alias commitdotfiles="git commit -m 'updated config' && git push origin master"
-
-# eval "$(rbenv init -)"
-# _evalcache rbenv init -
 
 export TERM=xterm-256color
 
