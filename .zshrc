@@ -49,9 +49,10 @@ export EDITOR='vim'
 alias mysql="/usr/local/opt/mysql-client/bin/mysql"
 alias mysqldump="/usr/local/opt/mysql-client/bin/mysqldump"
 
+alias commitdotfiles="git commit -m 'updated config' && git push origin master"
+
 # eval "$(rbenv init -)"
 # _evalcache rbenv init -
-
 
 export TERM=xterm-256color
 
@@ -80,17 +81,14 @@ timezsh() {
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+# brew install fnm
 eval "$(fnm env --use-on-cd)"
 
-# python path
-export PATH=/opt/homebrew/opt/python@3.10/libexec/bin:$PATH
-
-# pyenv
+# brew install pyenv pyenv-virtualenv
+# python path configured in .zshrc.local
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-
-# pyenv-virtualenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # zprof
