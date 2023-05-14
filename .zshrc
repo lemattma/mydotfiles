@@ -55,10 +55,10 @@ export TERM=xterm-256color
 export FZF_DEFAULT_COMMAND="rg --files --hidden | grep -v '.git/'"
 export FZF_DEFAULT_OPTS='-m --height 50% --border'
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-    --color=fg:#e5e9f0,bg:#2e3340,hl:#81a1c1
-    --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
-    --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
-    --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
+   --color=fg:#bdae93,bg:#32302f,hl:#83a598
+   --color=fg+:#ebdbb2,bg+:#3c3836,hl+:#83a598
+   --color=info:#fabd2f,prompt:#fabd2f,pointer:#8ec07c
+   --color=marker:#8ec07c,spinner:#8ec07c,header:#83a598'
 
 source ~/.fzf.zsh
 
