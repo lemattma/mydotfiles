@@ -108,20 +108,20 @@ window:
 # Font configuration
 font:
   normal:
-    # family: 'Roboto Mono for Powerline'
+    family: 'Hack'
     style: Regular
   bold:
-    # family: 'Roboto Mono for Powerline'
+    family: 'Hack'
     style: Bold
   italic:
-    # family: 'Roboto Mono for Powerline'
+    family: 'Hack'
     style: Italic
   bold_italic:
-    # family: 'Roboto Mono for Powerline'
+    family: 'Hack'
     style: Bold Italic
 
   # Point size
-  size: 11.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter

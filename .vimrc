@@ -9,20 +9,25 @@ let loaded_netrwPlugin = 0
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 
+" :PluginInstall
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'                    " Navigator
-Plugin 'neoclide/coc.nvim'                     " Conquer of completion
+" Plugin 'neoclide/coc.nvim'                     " Conquer of completion
 Plugin 'sheerun/vim-polyglot'                  " Collection of syntax plugins
 Plugin 'dense-analysis/ale'                    " Asynchronous Lint Engine
 Plugin 'junegunn/fzf.vim'
+
 " Plugin 'dracula/vim', { 'name': 'dracula' }
-Plugin 'arcticicestudio/nord-vim.git'
-Plugin 'itchyny/lightline.vim'
+" Plugin 'arcticicestudio/nord-vim.git'
+Plugin 'morhetz/gruvbox'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'preservim/nerdcommenter'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'airblade/vim-gitgutter'
 Plugin 'ludovicchabant/vim-gutentags.git'
 Plugin 'kristijanhusak/vim-js-file-import', {'do': 'npm install'}
 Plugin 'farmergreg/vim-lastplace.git'
@@ -37,7 +42,11 @@ call vundle#end()
 
 " Theme
 set termguicolors
-colorscheme nord
+colorscheme gruvbox
+set background=dark
+let g:airline_theme='base16_gruvbox_dark_medium'
+" let g:airline_theme='base16_gruvbox_dark_pale'
+" let g:airline_theme='base16_gruvbox_dark_soft'
 highlight Comment cterm=italic gui=italic
 set laststatus=2
 
@@ -249,25 +258,25 @@ nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>T :Tags<CR>
 
 " Lightline
-set noshowmode
-let g:lightline#gitdiff#indicator_added    = '+'
-let g:lightline#gitdiff#indicator_deleted  = '-'
-let g:lightline#gitdiff#indicator_modified = 'Δ'
-let g:lightline#gitdiff#separator          = ' '
-let g:lightline = {
-  \   'colorscheme': 'nord',
-  \   'active': {
-  \     'left':  [ [ 'mode', 'paste' ],
-  \                [ 'gitbranch' ],
-  \                [ 'filename', 'modified'] ],
-  \     'right': [ [ 'lineinfo' ],
-  \                [ 'percent' ],
-  \                [ 'filetype', 'fileformat', 'fileencoding' ] ]
-  \   },
-  \   'component_function': {
-  \     'gitbranch': 'fugitive#head',
-  \   }
-  \}
+" set noshowmode
+" let g:lightline#gitdiff#indicator_added    = '+'
+" let g:lightline#gitdiff#indicator_deleted  = '-'
+" let g:lightline#gitdiff#indicator_modified = 'Δ'
+" let g:lightline#gitdiff#separator          = ' '
+" let g:lightline = {
+"   \   'colorscheme': 'nord',
+"   \   'active': {
+"   \     'left':  [ [ 'mode', 'paste' ],
+"   \                [ 'gitbranch' ],
+"   \                [ 'filename', 'modified'] ],
+"   \     'right': [ [ 'lineinfo' ],
+"   \                [ 'percent' ],
+"   \                [ 'filetype', 'fileformat', 'fileencoding' ] ]
+"   \   },
+"   \   'component_function': {
+"   \     'gitbranch': 'fugitive#head',
+"   \   }
+"   \}
 
 " NERDTree
 nmap <leader>n :NERDTreeToggle<CR>
@@ -290,4 +299,3 @@ nmap <silent> <leader>gp  :Git push<cr>
 let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
 let g:lastplace_ignore_buftype = "quickfix,nofile,help"
 let g:lastplace_open_folds = 0
-
