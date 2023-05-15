@@ -6,8 +6,10 @@ let loaded_netrwPlugin = 0
 
 " command! MakeTags !ctags -R . --exclude=.git --exclude=log *
 
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/opt/fzf
+
+set rtp+=/opt/homebrew/opt/fzf
 
 " :PluginInstall
 call vundle#begin()

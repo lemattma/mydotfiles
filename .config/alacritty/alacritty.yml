@@ -12,7 +12,10 @@
 # to the user's home directory starting with `~/`.
 import:
   # git clone https://github.com/eendroroy/alacritty-theme.git ~/.alacritty-colorscheme
-  - ~/.alacritty-colorscheme/themes/gruvbox_dark.yaml
+  # - ~/.alacritty-colorscheme/themes/gruvbox_dark.yaml
+  # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+  - ~/.config/alacritty/themes/themes/gruvbox_material.yaml
+
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -24,6 +27,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
+  # sudo tic -xe alacritty,alacritty-direct .config/alacritty/alacritty.info
   TERM: alacritty
 
 window:

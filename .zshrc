@@ -45,12 +45,19 @@ export EDITOR='vim'
 # export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 # export PATH="/usr/local/opt/libpq/bin:$PATH"
+# export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
 
 alias mysql="/usr/local/opt/mysql-client/bin/mysql"
 alias mysqldump="/usr/local/opt/mysql-client/bin/mysqldump"
 alias commitdotfiles="git commit -m 'updated config' && git push origin master"
 
-export TERM=xterm-256color
+
+export TERM=alacritty
+# export TERM=xterm-256color
+# export TERM=xterm
+
+# export CLICOLOR=1 # colorized outputs
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden | grep -v '.git/'"
 export FZF_DEFAULT_OPTS='-m --height 50% --border'
