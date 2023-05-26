@@ -15,7 +15,12 @@ alias gupdatecommit="git add . && git commit --amend --no-edit"
 alias gcom="git checkout master && git pull origin master"
 alias gcoma="git checkout main && git pull origin main"
 alias gcod="gco develop && git pull origin develop"
-alias gpoc="git push -f origin `git rev-parse --abbrev-ref HEAD`"
+alias current_branch="git rev-parse --abbrev-ref HEAD"
+# alias gpoc="git push -f origin `current_branch`"
+function gpoc() {
+    git push -f origin `current_branch`
+}
+
 alias gsh="git add . && git stash"
 alias gshp="git stash pop"
 alias gshd="git stash drop"
@@ -37,13 +42,14 @@ alias flush="dscacheutil -flushcache"
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
-alias v="vim"
-alias r="rails"
+# alias v="vim"
+# alias r="rails"
 alias vsc='"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"'
 
 alias eddzsh="vim ~/.zshrc"
 alias eddvim="vim ~/.vimrc"
 alias eddtmux="vim ~/.tmux.conf"
+
 alias reloadzsh="exec zsh"
 alias reloadtmux="tmux source ~/.tmux.conf"
 
@@ -55,10 +61,12 @@ alias reloadtmux="tmux source ~/.tmux.conf"
 alias fs="stat -f \"%z bytes\""
 
 # Check recursively Ruby syntax
-alias checkrb='find . -name "*.rb" -exec ruby -wc {} \; 2>&1 | grep -v "Syntax OK\|: warning:"'
+# alias checkrb='find . -name "*.rb" -exec ruby -wc {} \; 2>&1 | grep -v "Syntax OK\|: warning:"'
 
 # Docker
-alias dockerconf='eval $(docker-machine env default)'
+# alias dockerconf='eval $(docker-machine env default)'
 
 # MySQL backup
-alias mysqldumpfull='mysqldump --opt -u root -p --all-databases | gzip > ~/mysql-full-backup-$(date +%F).sql.gz'
+# alias mysql="/usr/local/opt/mysql-client/bin/mysql"
+# alias mysqldump="/usr/local/opt/mysql-client/bin/mysqldump"
+# alias mysqldumpfull='mysqldump --opt -u root -p --all-databases | gzip > ~/mysql-full-backup-$(date +%F).sql.gz'

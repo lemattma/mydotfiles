@@ -30,10 +30,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
@@ -46,12 +42,6 @@ export EDITOR='vim'
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 # export PATH="/usr/local/opt/libpq/bin:$PATH"
 # export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-
-
-alias mysql="/usr/local/opt/mysql-client/bin/mysql"
-alias mysqldump="/usr/local/opt/mysql-client/bin/mysqldump"
-alias commitdotfiles="git commit -m 'updated config' && git push origin master"
-
 
 export TERM=alacritty
 # export TERM=xterm-256color
@@ -73,26 +63,10 @@ source ~/.fzf.zsh
 
 # HOMEBREW_NO_AUTO_UPDATE=1
 
-timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
-}
-
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-# aliases
-[[ -f ~/.aliases ]] && source ~/.aliases
-
 # brew install fnm
 eval "$(fnm env --use-on-cd)"
-
-# brew install pyenv pyenv-virtualenv
-# python path configured in .zshrc.local
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # zprof

@@ -98,3 +98,9 @@ function clean_docker(){
 #   echo "Current AWS_PROFILE: $AWS_PROFILE"
 #   echo "Current AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
 # }
+
+# Benchmark zsh loading time
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
