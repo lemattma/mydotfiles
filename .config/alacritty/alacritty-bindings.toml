@@ -1,0 +1,15 @@
+# https://alacritty.org/config-alacritty-bindings.html
+
+# key_bindings:
+#   - { key: Left, mods: Alt, chars: "\x1bb" }
+#   - { key: Right, mods: Alt, chars: "\x1bf" }
+#   - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
+#   - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End
+
+[mouse]
+bindings = []
+
+[keyboard]
+bindings = [
+    { key = "R", mods = "Control|Shift", chars = "rel" },
+]

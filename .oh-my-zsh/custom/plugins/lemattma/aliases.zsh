@@ -1,30 +1,32 @@
-alias -g PBC="| tr -d '\n' | pbcopy"
-alias -g G="| grep --color=always"
+alias -g C="| tr -d '\n' | pbcopy"
+alias -g G="| grep --color=never"
+alias -g GC="| grep --color=always"
+alias -g EX="| grep -v"
+alias -g H="--help"
+alias -g H1="| head -n1"
 
-alias hosts='sudo vim /etc/hosts'
+# Shortcuts
+alias v="vim"
+alias vsc='code'
+alias eohmy="vsc $HOME/.oh-my-zsh"
+alias edot="vsc $(ls -l ~/.zshrc | sed -e "s/.zshrc//g" | sed -e "s/.*\-> //g")"
+alias rel="exec zsh"
+alias reloadtmux="tmux source ~/.tmux.conf"
+alias ww='which'
+alias j='just'
+alias jj='unbuffer just'
+alias jl='jj docker-logs'
+alias al='~/.config/alacritty/toggle-alacritty-theme.sh'
+alias brs='brew search'
+alias bri='brew install'
+alias brf='brew info'
+alias ehosts='sudo vim /etc/hosts'
 
 # List only directories
 alias lsd='ls -lah | grep "^d"'
 
 # `cat` with beautiful colors. requires Pygments installed.
 alias c='colorize'
-
-# Git stuff
-alias gundocommit="git reset --soft HEAD^"
-alias gupdatecommit="git add . && git commit --amend --no-edit"
-alias gcom="git checkout master && git pull origin master"
-alias gcoma="git checkout main && git pull origin main"
-alias gcod="gco develop && git pull origin develop"
-alias current_branch="git rev-parse --abbrev-ref HEAD"
-# alias gpoc="git push -f origin `current_branch`"
-function gpoc() {
-    git push -f origin `current_branch`
-}
-
-alias gsh="git add . && git stash"
-alias gshp="git stash pop"
-alias gshd="git stash drop"
-alias gshl="git stash list"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -41,30 +43,11 @@ alias flush="dscacheutil -flushcache"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
-# Shortcuts
-# alias v="vim"
-# alias r="rails"
-alias vsc='"/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code"'
-
-alias eddzsh="vim ~/.zshrc"
-alias eddvim="vim ~/.vimrc"
-alias eddtmux="vim ~/.tmux.conf"
-
-alias reloadzsh="exec zsh"
-alias reloadtmux="tmux source ~/.tmux.conf"
-
-# alias vim="stty stop '' -ixoff ; vim"
-# `Frozing' tty, so after any command terminal settings will be restored
-# ttyctl -f
-
 # File size
 alias fs="stat -f \"%z bytes\""
 
-# Check recursively Ruby syntax
-# alias checkrb='find . -name "*.rb" -exec ruby -wc {} \; 2>&1 | grep -v "Syntax OK\|: warning:"'
-
-# Docker
-# alias dockerconf='eval $(docker-machine env default)'
+# copy last command into clipboard
+alias c="echo \$(fc -ln -1) | tr -d '\n' | pbcopy"
 
 # MySQL backup
 # alias mysql="/usr/local/opt/mysql-client/bin/mysql"

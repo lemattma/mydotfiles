@@ -8,7 +8,10 @@ mkdir -p ~/.vim/backups
 touch ~/.z
 
 mkdir -p ~/.tmux/plugins
-mkdir -p ~/.config/alacritty
+
+mkdir -p ~/.config/alacritty/themes
+# git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+
 # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # brew install vim
 # brew install tmux gotop neofetch
@@ -36,7 +39,10 @@ files=(
   .yabairc
   .skhdrc
   .oh-my-zsh/custom/plugins/lemattma
-  .config/alacritty/alacritty.yml
+  .config/alacritty/alacritty.toml
+  .config/alacritty/alacritty.info
+  .config/alacritty/alacritty-bindings.toml
+  .config/alacritty/toggle-alacritty-theme.sh
 )
 
 for f in "${files[@]}"

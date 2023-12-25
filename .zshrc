@@ -38,7 +38,8 @@ export EDITOR='vim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/Applications/Alacritty.app/Contents/MacOS"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 # export PATH="/usr/local/opt/libpq/bin:$PATH"
 # export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
@@ -58,10 +59,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
    --color=marker:#8ec07c,spinner:#8ec07c,header:#83a598'
 
 source ~/.fzf.zsh
-
-# alias ctags="`brew --prefix`/bin/ctags"
-
-# HOMEBREW_NO_AUTO_UPDATE=1
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
