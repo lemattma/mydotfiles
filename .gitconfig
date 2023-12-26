@@ -11,12 +11,18 @@ email = martinmirandac@gmail.com
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 
 [push]
 	default = current
 
 [pull]
 	ff = true
+
+[trace2]
+	eventTarget = ~/.gittrace/dump
+	configparams = custom.metacommands
+	eventBrief = true
