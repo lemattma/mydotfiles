@@ -27,6 +27,16 @@ light() {
   ~/.config/alacritty/toggle-alacritty-theme.sh
 }
 
+idea() {
+  INTELLIJ=$(ls -1d /Applications/IntelliJ\ * | tail -n1)
+
+  if ! [[ -z $1 ]]; then
+    open -a "$INTELLIJ" "$1"
+  else
+    open -a "$INTELLIJ"
+  fi
+}
+
 print_colors() {
   printf "|039| \033[39mDefault \033[m  |049| \033[49mDefault \033[m  |037| \033[37mLight gray \033[m     |047| \033[47mLight gray \033[m\n"
   printf "|030| \033[30mBlack \033[m    |040| \033[40mBlack \033[m    |090| \033[90mDark gray \033[m      |100| \033[100mDark gray \033[m\n"
