@@ -1,15 +1,14 @@
-#!/bin/bash
 cd `dirname "$0"`
-echo "Switched to: `pwd`"
+echo "${COL_BLUE}[PWD]${COL_OFF} $(pwd)"
 
 mkdir -p ~/.vim/swaps
 mkdir -p ~/.vim/undo
 mkdir -p ~/.vim/backups
+mkdir -p ~/.tmux/plugins
+mkdir -p ~/.config/alacritty/themes
+
 touch ~/.z
 
-mkdir -p ~/.tmux/plugins
-
-mkdir -p ~/.config/alacritty/themes
 # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
 # brew install jq
@@ -38,7 +37,6 @@ files=(
   .zshrc
   .tmux.conf
   .ctags.d
-  .gitconfig
   .gitignore_global
   .irbrc
   .hushlogin
@@ -48,23 +46,44 @@ files=(
   .config/alacritty/alacritty.toml
   .config/alacritty/alacritty.info
   .config/alacritty/alacritty-bindings.toml
+  .config/alacritty/theme-light.toml
+  .config/alacritty/theme-dark.toml
   .config/alacritty/toggle-alacritty-theme.sh
+  bash-examples.sh
 )
 
-for f in "${files[@]}"
-do
-  if [[ -h ~/$f ]]
-  then
-    ls -lh ~/$f
-  else
+for f in "${files[@]}"; do
 
-    if [[ -d ~/$f ]] || [[ -f ~/$f ]]
-    then
-      echo "Moving folder $f to $f-backup"
+  # symbolic? skip; if not, backup and create link
+  if [[ -h ~/$f ]]; then
+    echo "${COL_CYAN}[EXISTS]${COL_OFF} $f"
+  else
+    # Backup existing
+    if [[ -d ~/$f ]] || [[ -f ~/$f ]]; then
+      echo "${COL_YELLOW}[BACKUP]${COL_OFF} $f -> $f-backup"
       mv ~/$f ~/$f-backup
     fi
 
+    # create symbolic links -s symbolic -v verbose
+    echo "${COL_GREEN}[LINK]${COL_OFF} $f"
     ln -sv $(pwd)/$f ~/$f
-
   fi
+
+done
+
+# files that could change due to local configs, don't link; just copy
+files=(
+  .gitconfig
+  .config/alacritty/theme-current.toml
+)
+
+for f in "${files[@]}"; do
+
+  if [[ -e ~/$f ]]; then
+    echo "${COL_CYAN}[EXISTS]${COL_OFF} $f"
+  else
+    cp $(pwd)/$f ~/$f
+    echo "${COL_GREEN}[COPY]${COL_OFF} $f"
+  fi
+
 done
