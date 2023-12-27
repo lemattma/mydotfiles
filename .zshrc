@@ -50,14 +50,11 @@ export TERM=alacritty
 # export CLICOLOR=1 # colorized outputs
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden | grep -v '.git/'"
-export FZF_DEFAULT_OPTS='-m --height 50% --border'
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-   --color=fg:#bdae93,bg:#32302f,hl:#83a598
-   --color=fg+:#ebdbb2,bg+:#3c3836,hl+:#83a598
-   --color=info:#fabd2f,prompt:#fabd2f,pointer:#8ec07c
-   --color=marker:#8ec07c,spinner:#8ec07c,header:#83a598'
+export FZF_DEFAULT_OPTS='-m --height 50% --border' # --border
 
+source ~/.fzf.themes.zsh
 source ~/.fzf.zsh
+
 
 # Local config – moved to oh-my-zsh plaugin, extra.zsh
 # [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

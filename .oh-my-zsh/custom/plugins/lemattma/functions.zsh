@@ -26,6 +26,10 @@ light() {
   ~/.config/alacritty/toggle-alacritty-theme.sh
 }
 
+dark_mode() {
+  osascript -e "tell application \"System Events\" to tell appearance preferences to get dark mode"
+}
+
 idea() {
   INTELLIJ=$(ls -1d /Applications/IntelliJ\ * | tail -n1)
 

@@ -42,6 +42,7 @@ files=(
   .hushlogin
   .yabairc
   .skhdrc
+  .fzf.themes.zsh
   .oh-my-zsh/custom/plugins/lemattma
   .config/alacritty/alacritty.toml
   .config/alacritty/alacritty.info
@@ -74,6 +75,7 @@ done
 # files that could change due to local configs, don't link; just copy
 files=(
   .gitconfig
+  .dark_mode
   .config/alacritty/theme-current.toml
 )
 

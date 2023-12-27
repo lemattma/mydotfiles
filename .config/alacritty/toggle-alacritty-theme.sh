@@ -2,14 +2,20 @@ CONFIG_FILE=$(readlink ~/.config/alacritty/alacritty.toml)
 
 function light() {
   cp -f ~/.config/alacritty/theme-light.toml ~/.config/alacritty/theme-current.toml
-  touch $CONFIG_FILE
   echo "Light theme is now active"
+  refresh "false"
 }
 
 function dark() {
   cp -f ~/.config/alacritty/theme-dark.toml ~/.config/alacritty/theme-current.toml
-  touch $CONFIG_FILE
   echo "Dark theme is now active"
+  refresh "true"
+}
+
+function refresh() {
+  echo "$1" > ~/.dark_mode
+  touch $CONFIG_FILE
+  exec zsh
 }
 
 function auto() {
