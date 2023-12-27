@@ -1,2 +1,3 @@
 .DS_Store
 .tags
+.oh-my-zsh/custom/plugins/lemattma/extra*.zsh

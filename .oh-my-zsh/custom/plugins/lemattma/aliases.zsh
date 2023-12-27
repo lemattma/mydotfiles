@@ -15,7 +15,6 @@ alias reloadtmux="tmux source ~/.tmux.conf"
 alias ww='which'
 alias j='just'
 alias jj='unbuffer just'
-alias jl='jj docker-logs'
 alias al='~/.config/alacritty/toggle-alacritty-theme.sh'
 alias brs='brew search'
 alias bri='brew install'

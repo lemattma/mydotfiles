@@ -23,6 +23,6 @@ email = martinmirandac@gmail.com
 	ff = true
 
 [trace2]
-	eventTarget = ~/.gittrace/dump
+	eventTarget = /Users/mmiranda/.gittrace/dump
 	configparams = custom.metacommands
 	eventBrief = true

@@ -8,13 +8,12 @@ function f() {
     find . -name "$1"
 }
 
-# Copy w/ progress
-cp_p () {
-  rsync -WavP --human-readable --progress $1 $2
-}
-
 isrunning() {
   pgrep $1 > /dev/null && echo yes
+}
+
+function current_wd() {
+  pwd | sed -e "s/.*\/\(.*\)$/\1/"
 }
 
 dark() {
@@ -35,17 +34,6 @@ idea() {
   else
     open -a "$INTELLIJ"
   fi
-}
-
-print_colors() {
-  printf "|039| \033[39mDefault \033[m  |049| \033[49mDefault \033[m  |037| \033[37mLight gray \033[m     |047| \033[47mLight gray \033[m\n"
-  printf "|030| \033[30mBlack \033[m    |040| \033[40mBlack \033[m    |090| \033[90mDark gray \033[m      |100| \033[100mDark gray \033[m\n"
-  printf "|031| \033[31mRed \033[m      |041| \033[41mRed \033[m      |091| \033[91mLight red \033[m      |101| \033[101mLight red \033[m\n"
-  printf "|032| \033[32mGreen \033[m    |042| \033[42mGreen \033[m    |092| \033[92mLight green \033[m    |102| \033[102mLight green \033[m\n"
-  printf "|033| \033[33mYellow \033[m   |043| \033[43mYellow \033[m   |093| \033[93mLight yellow \033[m   |103| \033[103mLight yellow \033[m\n"
-  printf "|034| \033[34mBlue \033[m     |044| \033[44mBlue \033[m     |094| \033[94mLight blue \033[m     |104| \033[104mLight blue \033[m\n"
-  printf "|035| \033[35mMagenta \033[m  |045| \033[45mMagenta \033[m  |095| \033[95mLight magenta \033[m  |105| \033[105mLight magenta \033[m\n"
-  printf "|036| \033[36mCyan \033[m     |046| \033[46mCyan \033[m     |096| \033[96mLight cyan \033[m     |106| \033[106mLight cyan \033[m\n"
 }
 
 # get gzipped size
@@ -105,15 +93,6 @@ print_colors() {
 #   timestamp=`stat -f %B $2`
 #   timestamp_date=`date -r $timestamp +%Y%m%d%H%M`
 #   touch -t $timestamp_date $1
-# }
-
-# function aws_auth(){
-#   ENV=${1:=dev}
-#   export AWS_PROFILE=${ENV}
-#   export AWS_ACCESS_KEY_ID=`aws configure get aws_access_key_id`
-#   export AWS_SECRET_ACCESS_KEY=`aws configure get aws_secret_access_key`
-#   echo "Current AWS_PROFILE: $AWS_PROFILE"
-#   echo "Current AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
 # }
 
 # Benchmark zsh loading time

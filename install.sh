@@ -12,11 +12,17 @@ mkdir -p ~/.tmux/plugins
 mkdir -p ~/.config/alacritty/themes
 # git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
 
-# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# brew install jq
 # brew install vim
-# brew install tmux gotop neofetch
+# brew install tmux
+# brew install gotop neofetch # ??
+# brew install expect # for unbuffer
+
+
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Font: https://fonts.google.com/specimen/Source+Code+Pro
 # brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+
 
 # Alacritty
 # brew install alacritty

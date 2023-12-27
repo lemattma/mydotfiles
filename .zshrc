@@ -19,7 +19,6 @@ ZSH_THEME="apple"
 # git clone https://github.com/joshskidmore/zsh-fzf-history-search ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-fzf-history-search
 
 plugins=(
-    git
     common-aliases
     z
     zsh-autosuggestions
@@ -60,10 +59,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 
 source ~/.fzf.zsh
 
-# Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
-# brew install fnm
-eval "$(fnm env --use-on-cd)"
+# Local config – moved to oh-my-zsh plaugin, extra.zsh
+# [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # zprof
