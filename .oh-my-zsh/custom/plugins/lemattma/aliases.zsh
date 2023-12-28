@@ -5,6 +5,13 @@ alias -g EX="| grep -v"
 alias -g H="--help"
 alias -g H1="| head -n1"
 
+# https://github.com/magmax/colorize
+alias -g HL="| colorize"
+
+# https://pygments.org/docs/cmdline/
+alias -g PIG="| pygmentize"
+alias cc="pygmentize"
+
 # Shortcuts
 alias v="vim"
 alias vsc='code'
@@ -23,9 +30,6 @@ alias ehosts='sudo vim /etc/hosts'
 
 # List only directories
 alias lsd='ls -lah | grep "^d"'
-
-# `cat` with beautiful colors. requires Pygments installed.
-alias c='colorize'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

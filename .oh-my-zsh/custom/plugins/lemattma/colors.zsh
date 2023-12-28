@@ -1,4 +1,4 @@
-
+# https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
 export COLS_NUMB=$(tput cols)
 
 export COL_OFF=$(tput sgr0)

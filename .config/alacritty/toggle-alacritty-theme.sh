@@ -1,27 +1,29 @@
+#!/bin/bash
+
 CONFIG_FILE=$(readlink ~/.config/alacritty/alacritty.toml)
 
-function light() {
+light() {
   cp -f ~/.config/alacritty/theme-light.toml ~/.config/alacritty/theme-current.toml
   echo "Light theme is now active"
   refresh "false"
 }
 
-function dark() {
+dark() {
   cp -f ~/.config/alacritty/theme-dark.toml ~/.config/alacritty/theme-current.toml
   echo "Dark theme is now active"
   refresh "true"
 }
 
-function refresh() {
+refresh() {
   echo "$1" > ~/.dark_mode
-  touch $CONFIG_FILE
+  touch "$CONFIG_FILE"
   exec zsh
 }
 
-function auto() {
+auto() {
   IS_DARK=$(osascript -e "tell application \"System Events\" to tell appearance preferences to get dark mode")
 
-  if [[ $IS_DARK = "true" ]]; then
+  if [[ "$IS_DARK" = "true" ]]; then
     dark
   else
     light
