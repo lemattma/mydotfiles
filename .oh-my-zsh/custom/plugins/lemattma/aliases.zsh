@@ -26,6 +26,7 @@ alias al='~/.config/alacritty/toggle-alacritty-theme.sh'
 alias brs='brew search'
 alias bri='brew install'
 alias brf='brew info'
+alias brl='brew leaves | xargs brew desc --eval-all'
 alias ehosts='sudo vim /etc/hosts'
 
 # List only directories

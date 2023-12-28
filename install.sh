@@ -10,6 +10,7 @@ mkdir -p ~/.vim/backups
 mkdir -p ~/.tmux/plugins
 mkdir -p ~/.config/alacritty/themes
 mkdir -p ~/.config/colorize
+mkdir -p ~/.grc
 
 touch ~/.z
 
@@ -55,6 +56,7 @@ files=(
   .config/alacritty/theme-dark.toml
   .config/alacritty/toggle-alacritty-theme.sh
   .config/colorize/colorize.conf
+  .grc/grc.conf
   bash-examples.sh
 )
 
