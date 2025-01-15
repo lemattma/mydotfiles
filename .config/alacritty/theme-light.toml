@@ -1,23 +1,91 @@
 [colors.primary]
-background = '#f8f8f8'
-foreground = '#2a2b33'
+    background = "#eff1f5"
+    foreground = "#4c4f69"
+    dim_foreground = "#8c8fa1"
+    bright_foreground = "#4c4f69"
+
+[colors.cursor]
+    text = "#eff1f5"
+    cursor = "#dc8a78"
+
+[colors.vi_mode_cursor]
+    text = "#eff1f5"
+    cursor = "#7287fd"
+
+[colors.search.matches]
+    foreground = "#eff1f5"
+    background = "#6c6f85"
+
+[colors.search.focused_match]
+    foreground = "#eff1f5"
+    background = "#40a02b"
+
+[colors.footer_bar]
+    foreground = "#eff1f5"
+    background = "#6c6f85"
+
+[colors.hints.start]
+    foreground = "#eff1f5"
+    background = "#df8e1d"
+
+[colors.hints.end]
+    foreground = "#eff1f5"
+    background = "#6c6f85"
+
+[colors.selection]
+    text = "#eff1f5"
+    background = "#dc8a78"
 
 [colors.normal]
-black   = '#000000'
-red     = '#de3d35'
-green   = '#3e953a'
-yellow  = '#d2b67b'
-blue    = '#2f5af3'
-magenta = '#a00095'
-cyan    = '#3e953a'
-white   = '#bbbbbb'
+    black = "#bcc0cc"
+    red = "#d20f39"
+    green = "#40a02b"
+    yellow = "#df8e1d"
+    blue = "#1e66f5"
+    magenta = "#ea76cb"
+    cyan = "#179299"
+    white = "#5c5f77"
 
 [colors.bright]
-black   = '#000000'
-red     = '#de3d35'
-green   = '#3e953a'
-yellow  = '#d2b67b'
-blue    = '#2f5af3'
-magenta = '#a00095'
-cyan    = '#3e953a'
-white   = '#ffffff'
+    black = "#acb0be"
+    red = "#d20f39"
+    green = "#40a02b"
+    yellow = "#df8e1d"
+    blue = "#1e66f5"
+    magenta = "#ea76cb"
+    cyan = "#179299"
+    white = "#6c6f85"
+
+[[colors.indexed_colors]]
+    index = 16
+    color = "#fe640b"
+
+[[colors.indexed_colors]]
+    index = 17
+    color = "#dc8a78"
+
+    # [colors.primary]
+    #     background = '0xfffce6'
+    #     foreground = '0x654735'
+
+    # [colors.normal]
+    #     black = '0x654735'
+    #     red = '0xc14a4a'
+    #     green = '0x6c782e'
+    #     yellow = '0xb06a02'
+    #     blue = '0x45707a'
+    #     magenta = '0x945e80'
+    #     cyan = '0x4c7a5d'
+    #     white = '0x9c9376'
+    #     # white = '0xf2e5bc'
+
+    # [colors.bright]
+    #     black = '0x996f54'
+    #     # black = '0x654735'
+    #     red = '0xc14a4a'
+    #     green = '0x6c782e'
+    #     yellow = '0xb47109'
+    #     blue = '0x45707a'
+    #     magenta = '0x945e80'
+    #     cyan = '0x4c7a5d'
+    #     white = '0xf2e5bc'

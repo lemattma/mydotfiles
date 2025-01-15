@@ -1,46 +1,54 @@
 # https://alacritty.org/config-alacritty.html
 
-import = [
-    "~/.config/alacritty/alacritty-bindings.toml",
-    "~/.config/alacritty/theme-current.toml",
-]
+import = ["~/.config/alacritty/alacritty-bindings.toml", "~/.config/alacritty/theme-current.toml"]
 
 live_config_reload = true
 
 [env]
-term = "xterm-256color"
-# term = "alacritty"
+    term = "xterm-256color"
+    #term = "alacritty"
 
 [window]
-padding = { x = 10, y = 40 }
-dynamic_padding = true
-decorations = "transparent"
-opacity = 1
-startup_mode = "Maximized"
-decorations_theme_variant = "Dark"
+    padding = { x = 10, y = 10 }
+    dynamic_padding = true
+    decorations = "buttonless"
+    opacity = 1
+    startup_mode = "Maximized"
+    decorations_theme_variant = "Dark"
 
 [scrolling]
-history = 100000
-multiplier = 1
+    history = 100000
+    multiplier = 3
 
 [font]
-size = 14
-offset.y = 5
+    # brew install font-hack-nerd-font
+    size = 12
+    # offset.y = 5
+    offset.x = 0
+    normal.family = "Hack Nerd Font"
+    normal.style = "Regular"
+    bold.family = "Hack Nerd Font"
+    bold.style = "Bold"
+    italic.family = "Hack Nerd Font"
+    italic.style = "Italic"
 
 [selection]
-save_to_clipboard = true
-semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+    save_to_clipboard = false
+    semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [cursor]
-style.shape = "Block"
-style.blinking = "On"
-blink_interval = 300
-blink_timeout = 20
+    style.shape = "Beam"
+    style.blinking = "On"
+    blink_interval = 300
+    blink_timeout = 20
 
 [[hints.enabled]]
-hyperlinks = true
-command = "open"
+    regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\\s]+"
+    hyperlinks = true
+    command = "open"
+    [hints.enabled.mouse]
+        enabled = true
 
 [debug]
-render_timer = false
-print_events = true
+    render_timer = false
+    print_events = true

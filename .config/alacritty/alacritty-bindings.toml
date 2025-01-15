@@ -11,5 +11,14 @@ bindings = []
 
 [keyboard]
 bindings = [
-    { key = "R", mods = "Control|Shift", chars = "rel" },
+    { key = "R", mods = "Control|Shift", chars = "rel\u000D" },
+    { key = "Left", mods = "Alt", "chars" = "\u001bb" },                             # Skip word left
+    { key = "Right", mods = "Alt", "chars" = "\u001bf" },                            # Skip word right
+    { key = "Left", mods = "Command", "chars" = "\u001bOH", "mode" = "AppCursor" },  # Home
+    { key = "Left", mods = "Command", "chars" = "\u001b[H", "mode" = "~AppCursor" }, # Home
+    { key = "Right", mods = "Command", "chars" = "\u001bOF", "mode" = "AppCursor" }, # End
+    # { key = "Left", mods = "Command", "chars" = "\u0001" },   # End
+    # { key = "Right", mods = "Command", "chars" = "\u0005" },  # End
+    { key = "Back", mods = "Command", "chars" = "\u0015" },   # Delete line
+    { key = "Back", mods = "Alt", "chars" = "\u001b\u007f" }, # Delete word
 ]
