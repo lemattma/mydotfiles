@@ -32,5 +32,20 @@ alias gshd='git stash drop'
 
 # Push current branch
 function gpush() {
-    git push -f origin `gcurr`
+  git push -f origin `gcurr`
+}
+
+# current branch's SHA
+function gsha() {
+  git rev-parse --quiet `gcurr`
+}
+
+function gcbranches() {
+  git branch -r
+  du -sh .git
+  git fetch origin `gcurr` --prune --prune-tags
+  git branch -r --no-contains `gsha` | xargs -I{} git branch -rd "{}"
+  git gc --prune=now
+  git branch -r
+  du -sh .git
 }
