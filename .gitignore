@@ -1,3 +1,4 @@
 .DS_Store
 .tags
 .oh-my-zsh/custom/plugins/lemattma/extra*.zsh
+.config/karabiner/autmatic_backups
