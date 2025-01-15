@@ -4,35 +4,6 @@ cd "$(dirname "$0")" || exit
 
 echo "${COL_BLUE}[PWD]${COL_OFF} $(pwd)"
 
-echo Installing Homebrew...
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-echo Installing Oh My Zsh...
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-mkdir -p ~/.vim/swaps
-mkdir -p ~/.vim/undo
-mkdir -p ~/.vim/backups
-mkdir -p ~/.tmux/plugins
-mkdir -p ~/.config/alacritty/themes
-mkdir -p ~/.config/colorize
-mkdir -p ~/.grc
-
-touch ~/.z
-
-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/joshskidmore/zsh-fzf-history-search ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-fzf-history-search
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# brew install gotop neofetch # ??
-# pip install colorize
-
-# Font: https://fonts.google.com/specimen/Source+Code+Pro
-# brew install --HEAD universal-ctags/universal-ctags/universal-ctags
-
 files=(
   .vimrc
   .zshrc
@@ -41,10 +12,12 @@ files=(
   .gitignore_global
   .irbrc
   .hushlogin
-  # .yabairc
-  # .skhdrc
+  .yabairc
+  .skhdrc
   .fzf.themes.zsh
   .oh-my-zsh/custom/plugins/lemattma
+  .config/sketchybar
+  .config/nvim
   .config/alacritty/alacritty.toml
   .config/alacritty/alacritty.info
   .config/alacritty/alacritty-bindings.toml
@@ -54,7 +27,7 @@ files=(
   .config/colorize/colorize.conf
   .config/karabiner
   .grc/grc.conf
-  bash-examples.sh
+  Projects/bash-examples.sh
   Brewfile
   .gitconfig
 )
@@ -94,5 +67,3 @@ for f in "${files[@]}"; do
   fi
   
 done
-
-vim +PluginInstall +qall

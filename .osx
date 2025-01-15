@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# TODO https://github.com/boochtek/mac_config/blob/master/editors/vscode.sh
+
 # FWIW, this `defaults find` is good at finding some set preferences.
 # e.g.    defaults find com.apple.ActivityMonitor
 
@@ -21,38 +23,99 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
-defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3 # √
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
-defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain KeyRepeat -int 2 # √ 5, 12
+defaults write NSGlobalDomain InitialKeyRepeat -int 15 # √ 25, 30
+
+# dark mode
+# defaults delete NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically
+# defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+# osascript -e "tell application \"System Events\" to tell appearance preferences to set dark mode to true"
 
 ###############################################################################
 # Screen                                                                      #
 ###############################################################################
 
 # Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+defaults write com.apple.screensaver askForPassword -int 1 # √√√√
+defaults write com.apple.screensaver askForPasswordDelay -int 0 # √√√√
 
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
 
+
+mysides remove / >/dev/null # Oddly, AirDrop is named `/` here.
+mysides remove Recent >/dev/null
+mysides remove Home >/dev/null # Note that it's displayed with the username, not "Home".
+mysides remove Applications >/dev/null
+mysides remove Utilities >/dev/null
+mysides remove Desktop >/dev/null
+mysides remove Documents >/dev/null
+mysides remove Downloads >/dev/null
+mysides remove Projects >/dev/null
+mysides remove Pictures >/dev/null
+mysides remove Music >/dev/null
+mysides remove Movies >/dev/null
+mysides remove Screenshots >/dev/null
+mysides remove Config >/dev/null
+mysides remove Work >/dev/null
+mysides remove Personal >/dev/null
+mysides remove Developer >/dev/null
+mysides remove Library >/dev/null
+
+mysides add Home "file://$HOME/"
+mysides add Dropbox "file://$HOME/Dropbox/"
+mysides add Projects "file://$HOME/Projects/"
+# [[ -d "$HOME/Developer" ]] || ln -s "$HOME/Work" "$HOME/Developer"
+# mysides add Developer "file://$HOME/Developer/"
+# [[ -d $HOME/Personal ]] && mysides add Personal "file://$HOME/Personal/"
+mysides add Downloads "file://$HOME/Downloads/"
+mysides add Pictures "file://$HOME/Pictures/"
+mysides add Screenshots "file://$HOME/Dropbox/Screenshots/"
+mysides add Music "file://$HOME/Music/"
+mysides add Library "file://$HOME/Library/"
+mysides add Applications 'file:///Applications/'
+mysides add Utilities 'file:///Applications/Utilities'
+mysides add Recents 'file:///System/Library/CoreServices/Finder.app/Contents/Resources/MyLibraries/myDocuments.cannedSearch/'
+
+# Show Sidebar, but remove the Tags section.
+defaults write com.apple.finder ShowSidebar -bool true
+defaults write com.apple.finder ShowRecentTags -bool false
+
+## Save screen captures in `Pictures/Screenshots` instead of `Desktop`.
+mkdir -p "$HOME/Pictures/Screenshots"
+defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
+killall SystemUIServer
+## Remove shadow from screenshots.
+defaults write com.apple.screencapture disable-shadow -bool TRUE
+
+# Make the Sidebar a little wider, so our favorites fit.
+defaults write com.apple.finder SidebarWidth -int 175 # √√√√
+defaults write com.apple.finder FK_SidebarWidth -int 175 # √√√√
+
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-defaults write com.apple.finder QuitMenuItem -bool true
+defaults write com.apple.finder QuitMenuItem -bool true # √√√√
+
+# Finder: When opening a new window, start in the home directory.
+defaults write com.apple.finder NewWindowTarget -string 'PfHm' # √√√√
+
+# Set sidebar icon size to medium.
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2 # √√√√
 
 # Finder: disable window animations and Get Info animations
-defaults write com.apple.finder DisableAllAnimations -bool true
+defaults write com.apple.finder DisableAllAnimations -bool true # √√√√
 
 # Finder: show all filename extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true # √√√√
 
 # Finder: show status bar
-defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true # √√√√
 
 # Finder: show path bar
-defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowPathbar -bool true # √√√√
 
 # Display full POSIX path as Finder window title
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
@@ -61,37 +124,37 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # Keep folders on top when sorting by name
-defaults write com.apple.finder _FXSortFoldersFirst -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool true # √√√√
 
 # When performing a search, search the current folder by default
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # √√√√
 
 # Disable the warning when changing a file extension
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false # √√√√
 
 # Avoid creating .DS_Store files on network volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true # √√√√
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true # √√√√
 
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv" # √√√√√
 
 # Disable the warning before emptying the Trash
-# defaults write com.apple.finder WarnOnEmptyTrash -bool false
+defaults write com.apple.finder WarnOnEmptyTrash -bool false # √√√√
 
 # Show the ~/Library folder
-chflags nohidden ~/Library
+chflags nohidden ~/Library # √√√√
 
 # Show the /Volumes folder
-sudo chflags nohidden /Volumes
+sudo chflags nohidden /Volumes # √√√√
 
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
-  General -bool true \
-  OpenWith -bool true \
-  Privileges -bool true
+General -bool true \
+OpenWith -bool true \
+Privileges -bool true
 
 # Hot corners
 # Possible values:

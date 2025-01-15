@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# Exit codes
+# 0: Success
+# 1: General error
+# 2: Misuse of shell builtins (e.g., invalid options, missing arguments)
+# 126: Command not found
+# 127: Command not found
+# 128: Invalid argument to exit
+# 130: Script terminated by Ctrl+C
+# 255: Exit status out of range (exit codes are typically limited to the range 0-255)
+
+# FWIW, this `defaults find` is good at finding some set preferences.
+# e.g.    defaults find com.apple.ActivityMonitor
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+function checks() {
+  res=$(defaults read $1 &> /dev/null)
+  # shellcheck disable=SC2181
+  if [ $? -eq 0 ] ; then
+    echo "$1 not found"
+  fi
+}
+# Ask for the administrator password upfront
+# sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# defaults read com.apple.finder ShowExternalHardDrivesOnDesktop
+# defaults read com.apple.finder ShowHardDrivesOnDesktop
+# defaults read com.apple.finder ShowRemovableMediaOnDesktop
+
+defaults write NSGlobalDomain KeyRepeat -int 2 # √ 5, 12
+defaults write NSGlobalDomain InitialKeyRepeat -int 15 # √ 25, 30
+# checks "NSGlobalDomain KeyRepeat"
+# checks "NSGlobalDomain InitialKeyRepeat"
+# checks "NSGlobalDomain AppleInterfaceStyle"
+
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+
+
+
+# checks "com.apple.finder FXPreferredViewStyle"
+# checks "com.apple.dock wvous-br-corner"
+# checks "com.apple.dock wvous-br-modifier"
