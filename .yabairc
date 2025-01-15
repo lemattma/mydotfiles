@@ -6,85 +6,126 @@ set -x
 
 # Uncomment to refresh ubersicht widget on workspace change
 # Make sure to replace WIDGET NAME for the name of the ubersicht widget
-ubersicht_spaces_refresh_command="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# ubersicht_spaces_refresh_command="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
+# sketchy_spaces_refresh_command="osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-spaces-jsx\"'"
 
 
 # ===== Loading Scripting Additions ============
 
-# See: https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#macos-big-sur---automatically-load-scripting-addition-on-startup
-sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
 
 # ===== Tiling setting =========================
+yabai -m config external_bar all:40:0
 
-yabai -m config layout                      stack
+# window opacity (default: off)
+yabai -m config window_opacity off
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.85
+yabai -m config menubar_opacity       0.95
 
-yabai -m config top_padding                 6
-yabai -m config bottom_padding              6
-yabai -m config left_padding                6
-yabai -m config right_padding               6
-yabai -m config window_gap                  6
+# set focus follows mouse mode (default: off, options: off, autoraise, autofocus)
+yabai -m config mouse_follows_focus          off
+yabai -m config focus_follows_mouse          off
 
-yabai -m config mouse_follows_focus         off
-yabai -m config focus_follows_mouse         off
+# display_arrangement_order [default|vertical|horizontal]
+# Specify how displays are ordered (determined by center point).
+# default: Native macOS ordering.
+# vertical: Order by y-coordinate (followed by x-coordinate when equal).
+# horizontal: Order by x-coordinate (followed by y-coordinate when equal).
+yabai -m config display_arrangement_order    default
 
-yabai -m config window_topmost              off
-yabai -m config window_opacity              off
-yabai -m config window_opacity_duration     0.0
-yabai -m config window_shadow               off
+# window_origin_display [default|focused|cursor]
+# Specify which display a newly created window should be managed in.
+# default: The display in which the window is created (standard macOS behaviour).
+# focused: The display that has focus when the window is created.
+# cursor: The display that currently holds the mouse cursor.
+yabai -m config window_origin_display        default
 
-yabai -m config window_border               off
-yabai -m config window_border_width         2
-yabai -m config active_window_border_color  "0xF081A1C1"
-yabai -m config normal_window_border_color  "0x00FFFFFF"
-yabai -m config insert_feedback_color       "0xF081A1C1"
+# window_placement [first_child|second_child]
+# Specify whether managed windows should become the first or second leaf-node.
+yabai -m config window_placement             second_child
 
-yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       1.0
-yabai -m config split_ratio                 0.50
+# window_zoom_persist [<BOOL_SEL>]
+# Windows will keep their zoom-state through layout changes.
+yabai -m config window_zoom_persist          on
 
-yabai -m config auto_balance                off
 
-yabai -m config mouse_modifier              fn
-yabai -m config mouse_action1               move
-yabai -m config mouse_action2               resize
+# modify window shadows (default: on, options: on, off, float)
+# example: show shadows only for floating windows
+yabai -m config window_shadow float
 
-yabai -m config external_bar all:32:0
+yabai -m config window_animation_duration    0.0
+yabai -m config window_animation_easing      ease_out_circ
+yabai -m config window_opacity_duration      0.0
+
+yabai -m config insert_feedback_color        0xffd75f5f
+yabai -m config split_ratio                  0.5
+
+# split_type [vertical|horizontal|auto]
+# Specify how a window should be split.
+# vertical: The window is split along the y-axis.
+# horizontal: The window is split along the x-axis.
+# auto: The axis is determined based on width/height ratio.
+yabai -m config split_type                   auto
+
+yabai -m config auto_balance                 off
+
+yabai -m config layout                       stack
+# yabai -m config layout                       float
+# yabai -m config layout                       bsp
+
+yabai -m config top_padding                  10
+yabai -m config bottom_padding               10
+yabai -m config left_padding                 10
+yabai -m config right_padding                10
+yabai -m config window_gap                   10
+
+yabai -m config mouse_modifier               fn
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m mouse_drop_action                   swap
+
+# yabai -m config external_bar all:32:0
 
 
 # ===== Rules ==================================
-
-# yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add app=".*" layer=below
 yabai -m rule --add label="Finder" app="^Finder$" manage=off
-yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-yabai -m rule --add label="Transmit" app="^Transmit$" title="(General|Sync|Files|Transfers|Cloud|Rules|Keys|Advanced|Activity)$" manage=off
-yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add label="1Password" app="^1Password$" title="*1Password*" manage=off
+# yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="System Settings" app="^System Settings$" title=".*" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off
-yabai -m rule --add label="AnyConnect" app="^Cisco AnyConnect" manage=off
 yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
 yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
 yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="Alfred Preferences" title="Alfred Preferences" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Fantastical" app="^Fantastical.*$" manage=off
-yabai -m rule --add label="Things" app="^Things.*$" manage=off
 yabai -m rule --add label="iStat Menus" app="iStat Menus" manage=off
 yabai -m rule --add label="VLC" app="VLC" manage=off
-yabai -m rule --add label="WD Drive Utilities" app="WD Drive Utilities.*$" manage=off
 yabai -m rule --add label="Bartender" app="Bartender" manage=off
 yabai -m rule --add label="Zoom" app="^zoom.us$" title="^Zoom$" manage=off
-yabai -m rule --add label="Cisco AnyConnect" app="^Cisco AnyConnect" manage=off
 
 # ===== Signals ================================
 
-yabai -m signal --add event=application_front_switched action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=display_changed action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=display_added action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=space_changed action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_created action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_destroyed action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_focused action="${ubersicht_spaces_refresh_command}"
-yabai -m signal --add event=window_title_changed action="${ubersicht_spaces_refresh_command}"
+# yabai -m signal --add event=application_front_switched action="${ubersicht_spaces_refresh_command}"
+# yabai -m signal --add event=display_changed action="${ubersicht_spaces_refresh_command}"
+# yabai -m signal --add event=display_added action="${ubersicht_spaces_refresh_command}"
+# yabai -m signal --add event=space_changed action="${ubersicht_spaces_refresh_command}"
+# yabai -m signal --add event=window_created action="${ubersicht_spaces_refresh_command}"
+# yabai -m signal --add event=window_destroyed action="${ubersicht_spaces_refresh_command}"
+# yabai -m signal --add event=window_focused action="${ubersicht_spaces_refresh_command}"
+# yabai -m signal --add event=window_title_changed action="${ubersicht_spaces_refresh_command}"
+
+# yabai -m signal --add event=application_front_switched action="sketchybar -m --trigger layout_changed"
+# yabai -m signal --add event=display_changed action="sketchybar -m --trigger layout_changed"
+# yabai -m signal --add event=display_added action="sketchybar -m --trigger layout_changed"
+# yabai -m signal --add event=space_changed action="sketchybar -m --trigger layout_changed"
+# yabai -m signal --add event=window_created action="sketchybar -m --trigger layout_changed"
+# yabai -m signal --add event=window_destroyed action="sketchybar -m --trigger layout_changed"
+# yabai -m signal --add event=window_focused action="sketchybar -m --trigger layout_changed"
+# yabai -m signal --add event=window_title_changed action="sketchybar -m --trigger layout_changed"
 
 set +x
 
