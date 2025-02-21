@@ -84,15 +84,15 @@ yabai -m config window_gap                   10
 yabai -m config mouse_modifier               fn
 yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
-yabai -m mouse_drop_action                   swap
+# yabai -m mouse_drop_action                   swap
 
 # yabai -m config external_bar all:32:0
 
 
 # ===== Rules ==================================
-yabai -m rule --add app=".*" layer=below
+# yabai -m rule --add app=".*" layer=below
 yabai -m rule --add label="Finder" app="^Finder$" manage=off
-yabai -m rule --add label="1Password" app="^1Password$" title="*1Password*" manage=off
+yabai -m rule --add label="1Password" app="^1Password$" title=".*1Password.*" manage=off
 # yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add label="System Settings" app="^System Settings$" title=".*" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off

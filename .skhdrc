@@ -20,7 +20,8 @@ lctrl + alt + cmd - r : command yabai --restart-service
 cmd - space : /Applications/Alacritty.app/Contents/MacOS/alacritty -q
 
 # Open finder
-lctrl + alt + cmd - return : open -n ~;
+lctrl + alt - return : open -n ~;
+# lctrl + alt + cmd - return : open -n ~;
 
 # Open code
 lctrl + alt + cmd - 8 : command code ~/Projects/KindiCover/kindicover.code-workspace
