@@ -17,10 +17,10 @@ lctrl + alt - p : yabai -m space --layout float; sketchybar -m --trigger layout_
 lctrl + alt + cmd - r : command yabai --restart-service
 
 # Open terminal
-cmd - space : /Applications/Alacritty.app/Contents/MacOS/alacritty -q
+# cmd - space : /Applications/Alacritty.app/Contents/MacOS/alacritty -q
 
 # Open finder
-lctrl + alt - return : open -n ~;
+lctrl + alt - m : open ~;
 # lctrl + alt + cmd - return : open -n ~;
 
 # Open code

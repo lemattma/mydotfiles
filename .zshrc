@@ -27,6 +27,8 @@ export PATH="$PATH:/Applications/Alacritty.app/Contents/MacOS"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 # export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 # export PATH="/usr/local/opt/libpq/bin:$PATH"
@@ -48,22 +50,27 @@ source ~/.fzf.themes.zsh
 # [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
 
-# Local config
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
-# zprof
 
 
-# export PATH="/Users/mmiranda/.local/bin:$PATH"
 
 # unversioned Python aliases
-# export PATH="/usr/local/opt/python@3.12/libexec/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
 
-eval "$(rbenv init - --no-rehash zsh)"
-FPATH=~/.rbenv/completions:"$FPATH"
-autoload -U compinit
-compinit
+# eval "$(rbenv init - --no-rehash zsh)"
+# FPATH=~/.rbenv/completions:"$FPATH"
 
 # 1Passowrd CLI plugins
 source /Users/martin/.config/op/plugins.sh
+
+# Created by `pipx` on 2025-03-04 03:11:39
+# export PATH="$PATH:/Users/martin/.local/bin"
+# source ~/.venvs/default/bin/activate
+
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
+# Enable autocompletion
+autoload -U compinit
+compinit
+
+# zprof
