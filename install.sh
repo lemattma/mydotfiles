@@ -28,7 +28,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # brew install --HEAD universal-ctags/universal-ctags/universal-ctags
 
 files=(
-  .vimrc
+  # .vimrc
   .zshrc
   .tmux.conf
   # .ctags.d

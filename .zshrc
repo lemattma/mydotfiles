@@ -60,7 +60,7 @@ export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
 # FPATH=~/.rbenv/completions:"$FPATH"
 
 # 1Passowrd CLI plugins
-source /Users/martin/.config/op/plugins.sh
+# source /Users/martin/.config/op/plugins.sh
 
 # Created by `pipx` on 2025-03-04 03:11:39
 # export PATH="$PATH:/Users/martin/.local/bin"
