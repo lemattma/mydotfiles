@@ -1,5 +1,11 @@
 Very simple configuration files based on https://github.com/paulirish/dotfiles
 
+## First run
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/lemattma/mydotfiles/HEAD/first-run.sh)"
+```
+
 ## Install Oh My Zsh
 
 ```
