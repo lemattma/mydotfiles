@@ -7,7 +7,6 @@ if ! command -v brew &> /dev/null; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-
 brew install zsh zsh-completions git bash alfred arc mas alacritty vscode cursor
 
 # if [ ! -d ~/Projects ]; then
