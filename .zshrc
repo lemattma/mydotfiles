@@ -41,10 +41,11 @@ export TERM="tmux-256color"
 
 # export CLICOLOR=1 # colorized outputs
 
-export FZF_DEFAULT_COMMAND="rg --files --hidden | grep -v '.git/'"
-export FZF_DEFAULT_OPTS='-m --height 50% --border' # --border
-
 source ~/.fzf.themes.zsh
+export FZF_DEFAULT_COMMAND="rg --files --hidden | grep -v '.git/'"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS -m --height 50% --border"
+
 # source ~/.fzf.zsh
 
 # export PYENV_ROOT="$HOME/.pyenv"
