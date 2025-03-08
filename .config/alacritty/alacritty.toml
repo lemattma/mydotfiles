@@ -1,12 +1,9 @@
 # https://alacritty.org/config-alacritty.html
 
-import = ["~/.config/alacritty/alacritty-bindings.toml", "~/.config/alacritty/theme-current.toml"]
-
-live_config_reload = true
-
 [env]
-    term = "xterm-256color"
-    #term = "alacritty"
+    term = "tmux-256color"
+    # term = "xterm-256color"
+    # term = "alacritty"
 
 [window]
     padding = { x = 10, y = 10 }
@@ -37,10 +34,11 @@ live_config_reload = true
     semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [cursor]
-    style.shape = "Beam"
-    style.blinking = "On"
+    style.shape = "Block"
+    style.blinking = "Off"
     blink_interval = 300
     blink_timeout = 20
+    unfocused_hollow = true
 
 [[hints.enabled]]
     regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\\s]+"
@@ -49,6 +47,13 @@ live_config_reload = true
     [hints.enabled.mouse]
         enabled = true
 
-[debug]
-    render_timer = false
-    print_events = true
+[general]
+
+    live_config_reload = true
+    # https://alacritty.org/config-alacritty.html
+
+    import = ["~/.config/alacritty/alacritty-bindings.toml", "~/.config/alacritty/theme-current.toml"]
+
+    # [debug]
+    #     render_timer = false
+    #     print_events = true

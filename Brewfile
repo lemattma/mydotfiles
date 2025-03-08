@@ -53,7 +53,8 @@ brew "wget" # wget
 cask "istat-menus@6" # system monitor
 cask "lunar" # screen brightness
 cask "daisydisk" # disk space analyzer
-cask "karabiner-elements"
+cask "karabiner-elements" # keyboard remapper
+brew "ghostscript" # pdf viewer, ps2pdf
 # brew "keyboard-maestro" # macro recorder
 # brew "koekeishiya/formulae/skhd" # hotkey daemon
 # brew "koekeishiya/formulae/yabai" # window manager
@@ -99,9 +100,11 @@ cask "vlc" # video player
 ###############################################################
 cask "anki" # flashcards
 cask "zotero" # reference manager
+cask "chatgpt" # ai chatbot
 
 ###############################################################
 # Fonts
 ###############################################################
+cask "font-hack-nerd-font" # alacritty font
 cask "font-hack" # terminal font
 cask "font-nunito-sans" # sans-serif font

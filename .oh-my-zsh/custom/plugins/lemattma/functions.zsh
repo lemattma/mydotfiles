@@ -267,3 +267,7 @@ git_status_all() {
     fi
   done
 }
+
+manpdf() {
+  man -t $1 | ps2pdf - - | open -f -a Preview
+}
