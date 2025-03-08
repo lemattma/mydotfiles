@@ -1,5 +1,13 @@
 # https://alacritty.org/config-alacritty.html
 
+[general]
+    # https://alacritty.org/config-alacritty.html
+    import = ["~/.config/alacritty/alacritty-bindings.toml", "~/.config/alacritty/theme-current.toml"]
+    live_config_reload = true
+    # [debug]
+    #     render_timer = false
+    #     print_events = true
+
 [env]
     term = "tmux-256color"
     # term = "xterm-256color"
@@ -46,14 +54,3 @@
     command = "open"
     [hints.enabled.mouse]
         enabled = true
-
-[general]
-
-    live_config_reload = true
-    # https://alacritty.org/config-alacritty.html
-
-    import = ["~/.config/alacritty/alacritty-bindings.toml", "~/.config/alacritty/theme-current.toml"]
-
-    # [debug]
-    #     render_timer = false
-    #     print_events = true

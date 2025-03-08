@@ -21,6 +21,4 @@
         # { key = "Right", mods = "Command", "chars" = "\u0005" },  # End
         { key = "Back", mods = "Command", "chars" = "\u0015" },   # Delete line
         { key = "Back", mods = "Alt", "chars" = "\u001b\u007f" }, # Delete word
-        # { key = "K", mods = "Command", "chars" = "\u000B\u000C" }, # Clear history
-        { key = "K", mods = "Command", "chars" = "\u000B" },
     ]

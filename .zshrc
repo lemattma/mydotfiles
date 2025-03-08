@@ -34,7 +34,8 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # export PATH="/usr/local/opt/libpq/bin:$PATH"
 # export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-export TERM=alacritty
+export TERM="tmux-256color"
+# export TERM=alacritty
 # export TERM=xterm-256color
 # export TERM=xterm
 
