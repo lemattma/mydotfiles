@@ -1,5 +1,8 @@
 alias gcurr='git rev-parse --abbrev-ref HEAD'
 
+# Logs
+alias glog="git log --pretty=format:'%C(yellow)%h%Creset - %C(cyan)%s%Creset %Cgreen(%cr) %C(bold blue)<%an>%Creset' --graph --decorate --all"
+
 # Switch to
 alias master='git checkout master'
 alias main='git checkout main'
@@ -48,4 +51,36 @@ function gcbranches() {
   git gc --prune=now
   git branch -r
   du -sh .git
+}
+
+function branch-commits() {
+  git log \
+  --pretty=format:"%C(yellow)%h%Creset  %C(blue)%an%Creset  %C(green)%ad%Creset  %s" \
+  --date=format:"%d %b %Y %I:%M %p" \
+  `git-remote-base-branch`..`git-current-branch`
+  # | \
+  # column -t -s'|' -o ' '
+}
+alias gbc='branch-commits'
+
+function g-file-history() {
+  git log \
+  --pretty=format:"%C(yellow)%h%Creset  %C(blue)%an%Creset  %C(green)%ad%Creset  %s" \
+  --date=format:"%d %b %Y %I:%M %p" \
+  -- $1
+}
+alias gfh='g-file-history'
+
+function g-diff-from-base() {
+  git --no-pager diff --color \
+  `git-remote-base-branch`..`git-current-branch` \
+  | delta
+}
+alias gdfb='g-diff-from-base'
+
+function git-remote-base-branch() {
+  git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+}
+function git-current-branch() {
+  git rev-parse --abbrev-ref HEAD
 }

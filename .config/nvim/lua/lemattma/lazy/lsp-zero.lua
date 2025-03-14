@@ -16,6 +16,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
       },
     },
+    lazy = false,
     config = function()
       -- Reserve a space in the gutter
       -- This will avoid an annoying layout shift in the screen
@@ -54,7 +55,7 @@ return {
       require('mason-lspconfig').setup({
         -- Replace the language servers listed here
         -- with the ones you want to install
-        ensure_installed = { 'lua_ls' },
+        ensure_installed = { 'lua_ls', 'pyright' },
         handlers = {
           function(server_name)
             require('lspconfig')[server_name].setup({})
@@ -64,7 +65,9 @@ return {
       -- Servers
 
       require 'lspconfig'.lua_ls.setup {
+        lazy = false,
         on_init = function(client)
+
           if client.workspace_folders then
             local path = client.workspace_folders[1].name
             if vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc') then
@@ -128,6 +131,44 @@ return {
         },
         -- mapping = cmp.mapping.preset.insert({}),
       })
+
+      local lsp = require('lsp-zero')
+      -- lsp.preset('recommended')
+      lsp.ensure_installed({
+          'pyright', -- Python language server
+          'tsserver', -- TypeScript language server
+          'eslint', -- JavaScript and TypeScript linter
+          'html', -- HTML language server
+          'cssls', -- CSS language server
+          'jsonls', -- JSON language server
+          'tailwindcss', -- Tailwind CSS language server
+          'sqlls', -- SQL language server for TypeORM
+          -- 'prisma', -- Prisma language server
+          -- 'graphql', -- GraphQL language server
+          'yamlls', -- YAML language server
+          'bashls', -- Bash language server
+          'dockerls', -- Docker language server
+          -- 'gopls', -- Go language server
+          -- 'rust_analyzer', -- Rust language server
+          -- 'terraformls', -- Terraform language server
+          -- 'tflint', -- Terraform linter
+          'lua_ls', -- Lua language server
+          'vimls', -- Vim script language server
+          'marksman', -- Markdown language server
+          -- 'zk', -- Zettelkasten note-taking language server
+          -- 'jdtls', -- Java language server
+          -- 'kotlin_language_server', -- Kotlin language server
+          -- 'texlab', -- LaTeX language server
+          -- 'r_language_server', -- R language server
+          'taplo', -- TOML language server
+      })
+
+      -- Associate Tiltfile with Python
+      vim.cmd([[
+        autocmd BufRead,BufNewFile Tiltfile set filetype=python
+      ]])
+
+      lsp.setup()
     end
   },
 

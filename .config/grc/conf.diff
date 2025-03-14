@@ -1,0 +1,42 @@
+# GRC configuration for diff command
+
+# added lines
+regexp=^\+.*$
+colours=bold green
+count=more
+-
+
+# removed lines
+regexp=^-.*$
+colours=bold red
+count=more
+-
+
+# chunk header
+regexp=^@@.*@@
+colours=bold cyan
+count=more
+-
+
+# file header - old file
+regexp=^---.*$
+colours=bold yellow
+count=more
+-
+
+# file header - new file
+regexp=^\+\+\+.*$
+colours=bold yellow
+count=more
+-
+
+# diff command
+regexp=^diff.*$
+colours=bold blue
+count=more
+-
+
+# index line
+regexp=^index [0-9a-f]+\.\.[0-9a-f]+
+colours=magenta
+count=more

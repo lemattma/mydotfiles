@@ -1,0 +1,36 @@
+# GRC configuration for df command
+
+# filesystem
+regexp=^(.*?)\s
+colours=yellow
+count=once
+-
+
+# size
+regexp=\s(\d+[KMGTPEZY]?)\s
+colours=green
+count=once
+-
+
+# used space - highlight if high
+regexp=\s(\d+[KMGTPEZY]?)\s+(\d+[KMGTPEZY]?)\s+(\d+[KMGTPEZY]?)\s+([8-9][0-9]|100)%\s
+colours=unchanged,unchanged,unchanged,bold red
+count=once
+-
+
+# used space - normal
+regexp=\s(\d+[KMGTPEZY]?)\s+(\d+[KMGTPEZY]?)\s+(\d+[KMGTPEZY]?)\s+([0-7][0-9]|)%\s
+colours=unchanged,unchanged,unchanged,green
+count=once
+-
+
+# used space - warning
+regexp=\s(\d+[KMGTPEZY]?)\s+(\d+[KMGTPEZY]?)\s+(\d+[KMGTPEZY]?)\s+([8-9][0-9]|100)%\s
+colours=unchanged,unchanged,unchanged,bold yellow
+count=once
+-
+
+# mount point
+regexp=\s(/\S*)$
+colours=bold blue
+count=once

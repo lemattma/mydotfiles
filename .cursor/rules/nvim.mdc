@@ -1,0 +1,30 @@
+---
+description: nvim config
+globs: .config/nvim/**/*.lua
+alwaysApply: true
+---
+
+# Nvim configuration
+
+Help me configure nvim so it works close to vscode.
+
+- [lsp-zero.lua](mdc:.config/nvim/lua/lemattma/lazy/lsp-zero.lua) for languages
+- [remap.lua](mdc:.config/nvim/lua/lemattma/remap.lua) for remaps
+- Using LUA for configuration
+
+### Lazy plugin
+
+Use `lazy/lazy.nvim` for adding plugins. Each plugin is configured inside `nvim/lua/lemattma/lazy`.
+
+Example:
+- lsp-zero.lua
+- telescope.lua
+
+### plugins configuration
+
+Prioritise configuring plugins inside the `.setup` function.
+
+```
+require 'lspconfig'.lua_ls.setup {
+        on_init = function(client)
+```

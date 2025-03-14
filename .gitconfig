@@ -1,14 +1,15 @@
 # This is Git's per-user configuration file.
 [user]
-name = Martin Miranda
-email = martinmirandac@gmail.com
+	name = Martin Miranda
+	email = martinmirandac@gmail.com
 
 [alias]
 	otherprofile = config user.email \"martin@otheremail.com\"
 
 [core]
 	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	# pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -26,3 +27,15 @@ email = martinmirandac@gmail.com
 	eventTarget = /Users/mmiranda/.gittrace/dump
 	configparams = custom.metacommands
 	eventBrief = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+	# brew install git-delta
+	# https://github.com/dandavison/delta?tab=readme-ov-file
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictstyle = zdiff3

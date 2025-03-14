@@ -1,0 +1,90 @@
+# GRC configuration for git command
+
+# branch
+regexp=\[(\w+)( [^\]]+)?\]
+colours=bold green
+count=more
+-
+
+# commit hash
+regexp=commit\s+([0-9a-f]{7,40})
+colours=unchanged,yellow
+count=more
+-
+
+# Author
+regexp=Author:\s+(.+)
+colours=unchanged,cyan
+count=more
+-
+
+# Date
+regexp=Date:\s+(.+)
+colours=unchanged,blue
+count=more
+-
+
+# file changes - added
+regexp=^\s*A\s+(.+)
+colours=unchanged,bold green
+count=more
+-
+
+# file changes - modified
+regexp=^\s*M\s+(.+)
+colours=unchanged,bold yellow
+count=more
+-
+
+# file changes - deleted
+regexp=^\s*D\s+(.+)
+colours=unchanged,bold red
+count=more
+-
+
+# file changes - renamed
+regexp=^\s*R\s+(.+)
+colours=unchanged,bold blue
+count=more
+-
+
+# diff - added lines
+regexp=^\+.*$
+colours=bold green
+count=more
+-
+
+# diff - removed lines
+regexp=^-.*$
+colours=bold red
+count=more
+-
+
+# diff - chunk header
+regexp=^@@.*@@
+colours=bold cyan
+count=more
+-
+
+# status - modified
+regexp=modified:\s+(.+)
+colours=unchanged,yellow
+count=more
+-
+
+# status - new file
+regexp=new file:\s+(.+)
+colours=unchanged,green
+count=more
+-
+
+# status - deleted
+regexp=deleted:\s+(.+)
+colours=unchanged,red
+count=more
+-
+
+# status - renamed
+regexp=renamed:\s+(.+)
+colours=unchanged,blue
+count=more

@@ -21,4 +21,7 @@
         # { key = "Right", mods = "Command", "chars" = "\u0005" },  # End
         { key = "Back", mods = "Command", "chars" = "\u0015" },   # Delete line
         { key = "Back", mods = "Alt", "chars" = "\u001b\u007f" }, # Delete word
+        { key = "Left", mods = "Alt", chars = "\u001b[1;3D" },    # Move left with Alt
+        { key = "Right", mods = "Alt", chars = "\u001b[1;3C" },   # Move right with Alt
+
     ]

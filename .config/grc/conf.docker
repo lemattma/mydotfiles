@@ -1,0 +1,60 @@
+# GRC configuration for docker command
+
+# container ID
+regexp=([0-9a-f]{12})
+colours=yellow
+count=more
+-
+
+# image ID
+regexp=sha256:([0-9a-f]{12})
+colours=cyan
+count=more
+-
+
+# container status - running
+regexp=\s(Up|running)\s
+colours=bold green
+count=more
+-
+
+# container status - exited
+regexp=\s(Exited|exited)\s
+colours=bold red
+count=more
+-
+
+# container status - created
+regexp=\s(Created|created)\s
+colours=bold blue
+count=more
+-
+
+# container status - paused
+regexp=\s(Paused|paused)\s
+colours=bold yellow
+count=more
+-
+
+# container ports
+regexp=(\d+\.\d+\.\d+\.\d+):(\d+)->(\d+)/tcp
+colours=unchanged,magenta,blue,green
+count=more
+-
+
+# container ports (udp)
+regexp=(\d+\.\d+\.\d+\.\d+):(\d+)->(\d+)/udp
+colours=unchanged,magenta,blue,green
+count=more
+-
+
+# container size
+regexp=(\d+(\.\d+)?)(B|KB|MB|GB|TB)
+colours=unchanged,green,blue
+count=more
+-
+
+# container names
+regexp=\s([a-zA-Z0-9_-]+)$
+colours=bold cyan
+count=more

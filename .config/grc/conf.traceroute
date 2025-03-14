@@ -1,0 +1,36 @@
+# GRC configuration for traceroute command
+
+# hop number
+regexp=^\s*(\d+)
+colours=yellow
+count=once
+-
+
+# IP address
+regexp=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+colours=green
+count=more
+-
+
+# hostname
+regexp=\s\([^()]+\)
+colours=cyan
+count=more
+-
+
+# time
+regexp=\d+\.\d+ ms
+colours=blue
+count=more
+-
+
+# timeout
+regexp=\*\s+\*\s+\*
+colours=red
+count=once
+-
+
+# unreachable
+regexp=!([HXNFPSU]|A|V|C|I|T|K|R|M)
+colours=bold red
+count=once

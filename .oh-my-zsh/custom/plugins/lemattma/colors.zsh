@@ -59,3 +59,23 @@ colors_show_tput() {
     echo $(tput sgr0)
   done
 }
+
+# colorize
+# difference with tput is that colorize applies automatically to commands
+# echo -e '\e[32mThis is a success message!\e[0m'
+
+# grc
+alias cat="grc cat"
+alias ping="grc ping"
+alias netstat="grc netstat"
+alias ps="grc ps"
+alias tail="grc tail" # Useful for log files
+alias diff="grc diff"
+
+# TODO: add lexer for different log formats
+alias loghighlight="pygmentize -l console -O style=monokai"
+# alias loghighlight="pygmentize -l terminal -O style=monokai"
+
+# TAIL LOG FILES WITH COLOR (Using GRC + Pygments)
+# alias tailnginx="tail -f /var/log/nginx/access.log | grc tail"
+# alias tailerror="tail -f /var/log/nginx/error.log | pygmentize -l log -O style=monokai"

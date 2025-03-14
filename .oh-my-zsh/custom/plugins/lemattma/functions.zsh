@@ -271,3 +271,11 @@ git_status_all() {
 manpdf() {
   man -t $1 | ps2pdf - - | open -f -a Preview
 }
+
+list_node_modules() {
+  find . -type d -name "node_modules" -prune -print
+}
+
+remove_node_modules() {
+  find . -type d -name "node_modules" -prune -exec rm -rf {} +
+}

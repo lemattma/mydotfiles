@@ -10,13 +10,16 @@ plugins=(
   git
   rails
   common-aliases
-  zsh-autosuggestions
+  zsh-autosuggestions # https://github.com/zsh-users/zsh-autosuggestions
   zsh-fzf-history-search # https://github.com/joshskidmore/zsh-fzf-history-search
-  zsh-syntax-highlighting
+  zsh-syntax-highlighting # https://github.com/zsh-users/zsh-syntax-highlighting
   lemattma
 )
 
 source $ZSH/oh-my-zsh.sh
+
+# Set up fzf key bindings and fuzzy completion
+# eval "$(fzf --bash)"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -71,8 +74,16 @@ export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
-# Enable autocompletion
-autoload -U compinit
-compinit
+eval "$(rbenv init - --no-rehash zsh)"
 
-# zprof
+# Docker CLI completions
+fpath=(/Users/martin/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
+# GRC colorize configuration
+[[ -f "$HOME/.config/grc/grc.zsh" ]] && source "$HOME/.config/grc/grc.zsh"
+
+
+# zprof# The following lines have been added by Docker Desktop to enable Docker CLI completions.

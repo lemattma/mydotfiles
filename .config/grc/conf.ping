@@ -1,0 +1,54 @@
+# GRC configuration for ping command
+
+# IP address
+regexp=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+colours=yellow
+count=more
+-
+
+# time
+regexp=time=(\d+\.\d+) ms
+colours=green
+count=more
+-
+
+# time with higher latency (>100ms)
+regexp=time=(\d{3,}\.\d+) ms
+colours=red
+count=more
+-
+
+# packet loss
+regexp=(\d+)% packet loss
+colours=red
+count=once
+-
+
+# ttl
+regexp=ttl=(\d+)
+colours=blue
+count=more
+-
+
+# sequence number
+regexp=icmp_seq=(\d+)
+colours=cyan
+count=more
+-
+
+# bytes
+regexp=(\d+) bytes from
+colours=magenta
+count=more
+-
+
+# destination unreachable
+regexp=Destination Host Unreachable
+colours=bold red
+count=once
+-
+
+# request timeout
+regexp=Request timeout
+colours=bold red
+count=once

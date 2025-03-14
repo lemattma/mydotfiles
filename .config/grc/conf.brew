@@ -1,0 +1,66 @@
+# GRC configuration for brew command
+
+# package names
+regexp=^([a-zA-Z0-9_\-\.]+)
+colours=bold cyan
+count=more
+-
+
+# version numbers
+regexp=\s([0-9]+\.[0-9]+\.[0-9]+)
+colours=bold green
+count=more
+-
+
+# success messages
+regexp=\b(Successfully|Success|successfully|success)\b
+colours=bold green
+count=more
+-
+
+# error messages
+regexp=\b(Error|error|ERROR|Failed|failed|FAILED)\b
+colours=bold red
+count=more
+-
+
+# warning messages
+regexp=\b(Warning|warning|WARNING)\b
+colours=bold yellow
+count=more
+-
+
+# downloading
+regexp=\b(Downloading|downloading)\b
+colours=bold blue
+count=more
+-
+
+# installing
+regexp=\b(Installing|installing)\b
+colours=bold magenta
+count=more
+-
+
+# upgrading
+regexp=\b(Upgrading|upgrading)\b
+colours=bold yellow
+count=more
+-
+
+# linking
+regexp=\b(Linking|linking)\b
+colours=bold cyan
+count=more
+-
+
+# dependencies
+regexp=\b(Dependencies|dependencies|Dependency|dependency)\b
+colours=bold blue
+count=more
+-
+
+# URLs
+regexp=(https?|ftp)://[^\s"']+
+colours=underline green
+count=more

@@ -1,0 +1,72 @@
+# GRC configuration for netstat command
+
+# protocol
+regexp=^(tcp|udp|unix|raw)
+colours=bold yellow
+count=once
+-
+
+# IP address
+regexp=\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}
+colours=magenta
+count=more
+-
+
+# port numbers
+regexp=:(\d+)
+colours=unchanged,green
+count=more
+-
+
+# state - LISTEN
+regexp=\bLISTEN\b
+colours=bold blue
+count=more
+-
+
+# state - ESTABLISHED
+regexp=\bESTABLISHED\b
+colours=bold green
+count=more
+-
+
+# state - CLOSED
+regexp=\bCLOSED\b
+colours=bold red
+count=more
+-
+
+# state - TIME_WAIT
+regexp=\bTIME_WAIT\b
+colours=bold cyan
+count=more
+-
+
+# state - CLOSE_WAIT
+regexp=\bCLOSE_WAIT\b
+colours=bold yellow
+count=more
+-
+
+# state - FIN_WAIT
+regexp=\bFIN_WAIT\b
+colours=bold yellow
+count=more
+-
+
+# state - SYN_SENT
+regexp=\bSYN_SENT\b
+colours=bold cyan
+count=more
+-
+
+# state - SYN_RECV
+regexp=\bSYN_RECV\b
+colours=bold cyan
+count=more
+-
+
+# process ID and name
+regexp=\s(\d+)/(\S+)
+colours=unchanged,yellow,bold blue
+count=more

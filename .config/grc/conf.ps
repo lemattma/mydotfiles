@@ -1,0 +1,54 @@
+# GRC configuration for ps command
+
+# PID
+regexp=^\s*(\d+)
+colours=yellow
+count=once
+-
+
+# USER
+regexp=^\s*\d+\s+(\S+)
+colours=green
+count=once
+-
+
+# CPU usage - high
+regexp=(\d+\.\d+|\d+,\d+)\s+(\d+\.\d+|\d+,\d+)\s+([7-9][0-9]|100)\.\d+
+colours=unchanged,unchanged,bold red
+count=once
+-
+
+# CPU usage - medium
+regexp=(\d+\.\d+|\d+,\d+)\s+(\d+\.\d+|\d+,\d+)\s+([4-6][0-9])\.\d+
+colours=unchanged,unchanged,bold yellow
+count=once
+-
+
+# CPU usage - low
+regexp=(\d+\.\d+|\d+,\d+)\s+(\d+\.\d+|\d+,\d+)\s+([0-3][0-9])\.\d+
+colours=unchanged,unchanged,green
+count=once
+-
+
+# Memory usage - high
+regexp=(\d+\.\d+|\d+,\d+)\s+([7-9][0-9]|100)\.\d+\s+(\d+\.\d+|\d+,\d+)
+colours=unchanged,bold red,unchanged
+count=once
+-
+
+# Memory usage - medium
+regexp=(\d+\.\d+|\d+,\d+)\s+([4-6][0-9])\.\d+\s+(\d+\.\d+|\d+,\d+)
+colours=unchanged,bold yellow,unchanged
+count=once
+-
+
+# Memory usage - low
+regexp=(\d+\.\d+|\d+,\d+)\s+([0-3][0-9])\.\d+\s+(\d+\.\d+|\d+,\d+)
+colours=unchanged,green,unchanged
+count=once
+-
+
+# Command
+regexp=\s+(\S+)$
+colours=bold blue
+count=once
