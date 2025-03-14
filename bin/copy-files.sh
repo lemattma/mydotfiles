@@ -4,8 +4,11 @@
 cd "$(dirname "$0")/.." || exit
 
 files=(
+  .zshenv
+  .zprofile
   .zshrc
   .tmux.conf
+  .fzf.zsh
   .gitignore_global
   .irbrc
   .hushlogin # silence terminal login

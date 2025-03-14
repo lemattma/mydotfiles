@@ -1,5 +1,20 @@
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# echo ".zprofile"
 
-# Created by `pipx` on 2025-03-04 03:11:39
-export PATH="$PATH:/Users/martin/.local/bin"
+export EDITOR='vim'
+export LANG=en_US.UTF-8
+# export TERM=tmux-256color
+# export TERM=alacritty
+# export TERM=xterm-256color
+# export TERM=xterm
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init - --no-rehash zsh)"
+
+# Docker CLI completions
+fpath=(/Users/martin/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
