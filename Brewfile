@@ -15,22 +15,22 @@ brew "php" # php
 brew "pyenv-virtualenv" # python virtual environment
 brew "pyenv" # python version manager
 brew "python"
+brew "redis"
 brew "rbenv" # ruby version manager
 brew "shellcheck" # shell script linter
 brew "watchman" # file watcher
 brew "yarn" # javascript package manager
-brew "mysql-client" # mysql client
+# brew "mysql-client" # mysql client
 brew "libpq" # postgres client
 brew "fnm" # fast node manager
 # Other
 brew "awscli" # aws cli
 brew "bash-completion"
-cask "docker" # containerization
+cask "docker-desktop" # desktop app for docker
 brew "git" # version control
 brew "jq" # json parser
 brew "just" # task runner
 brew "shellcheck" # shell script linter
-brew "watchman" # file watcher
 cask "postico" # postgres client
 cask "postman" # api client
 cask "alacritty" # after brew install, go to security and allow alacritty

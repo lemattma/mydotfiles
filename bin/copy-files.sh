@@ -29,7 +29,7 @@ files=(
 )
 
 for f in "${files[@]}"; do
-  
+
   # symbolic? skip; if not, backup and create link
   if [[ -h ~/$f ]]; then
     echo "${COL_BLACK}[EXISTS] $f ${COL_OFF}"
@@ -39,13 +39,13 @@ for f in "${files[@]}"; do
       echo "${COL_YELLOW} [BACKUP]${COL_OFF} $f -> $f-backup"
       mv ~/"$f" ~/"$f"-backup
     fi
-    
+
     # create symbolic links -s symbolic -v verbose
     echo "${COL_GREEN}  [LINK]${COL_OFF} $f"
     ln -s "$(pwd)/$f" ~/"$f"
     # ln -sv "$(pwd)/$f" ~/"$f"
   fi
-  
+
 done
 
 # files that could change due to local configs, don't link; just copy
@@ -55,12 +55,12 @@ files=(
 )
 
 for f in "${files[@]}"; do
-  
+
   if [[ -e ~/$f ]]; then
     echo "${COL_BLACK}[EXISTS] $f ${COL_OFF}"
   else
     cp "$(pwd)/$f" ~/"$f"
     echo "${COL_GREEN}  [COPY]${COL_OFF} $f"
   fi
-  
+
 done
