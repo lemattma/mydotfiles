@@ -68,5 +68,16 @@ __wp_alias() {
 }
 
 
-__micros_alias
-__wp_alias
+# Lazy load aliases only when docker functions are used
+function _load_docker_aliases() {
+  if [[ ! -f "$ZSH_CUSTOM/plugins/lemattma/.docker_aliases_loaded" ]]; then
+    __micros_alias
+    __wp_alias
+    touch "$ZSH_CUSTOM/plugins/lemattma/.docker_aliases_loaded"
+  fi
+}
+
+# Wrapper functions that trigger alias loading
+function dck_logs() { _load_docker_aliases; dck_logs "$@"; }
+function dck_inspect() { _load_docker_aliases; dck_inspect "$@"; }
+function clean_docker() { _load_docker_aliases; clean_docker "$@"; }

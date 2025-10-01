@@ -174,25 +174,6 @@ function find_and_run() {
   find $1 -type f -iname $2 -print0 | xargs -0 -L1 -P0 $3
 }
 
-function yt() {
-  # https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#output-template-examples
-
-  # --embed-subs
-  # --split-chapters
-  # --keep-video \
-  # -o ~/YouTube/%(title)s.%(ext)s
-  yt-dlp \
-  -f "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b" \
-  --merge-output-format mp4 \
-  --write-subs \
-  --sub-langs "en.*,es.*" \
-  --convert-subs "vtt" \
-  --embed-chapters \
-  --embed-thumbnail \
-  -o "~/YouTube/%(channel)s - %(title)s.%(ext)s" \
-  $1
-}
-
 function yb_windows() {
   printf "\n"
 
@@ -278,4 +259,40 @@ list_node_modules() {
 
 remove_node_modules() {
   find . -type d -name "node_modules" -prune -exec rm -rf {} +
+}
+
+zip_folder() {
+  echo ""
+
+  local folder_to_zip
+  local archive_name
+  local exclude_git_files
+
+  current_dir=$(pwd)
+
+  folder_to_zip=$1 || $(pwd)
+  exclude_git_files=$2 || false
+
+  cd $folder_to_zip
+
+  archive_name=$(basename $(pwd))
+
+  mkdir -p ~/Archives
+  # cd ~/Archives
+
+  echo "Zipping $archive_name..."
+
+  if $exclude_git_files; then
+    zip -r "$archive_name.zip" . -x "node_modules/*" ".git/*" > /dev/null 2>&1
+  else
+    zip -r "$archive_name.zip" . -x "node_modules/*" > /dev/null 2>&1
+  fi
+
+  echo "Moving new archive to ~/Archives..."
+  rm -rf "~/Archives/$archive_name.zip"
+  mv "$archive_name.zip" ~/Archives
+
+  cd $current_dir
+
+  echo "✅ Done.\n"
 }

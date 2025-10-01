@@ -33,6 +33,11 @@ alias gshp='git stash pop'
 alias gshl='git stash list'
 alias gshd='git stash drop'
 
+# Diffs
+alias gd='git diff' # base alias
+alias gdc='gd --staged' # --cached is the staged changes.
+alias gd1='gd HEAD~1' # ~HEAD is the previous commit.
+
 # Push current branch
 function gpush() {
   git push -f origin `gcurr`
