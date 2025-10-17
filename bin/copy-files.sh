@@ -10,6 +10,7 @@ files=(
   .tmux.conf
   .fzf.zsh
   .gitignore_global
+  .gemrc
   .irbrc
   .hushlogin # silence terminal login
   .yabairc
