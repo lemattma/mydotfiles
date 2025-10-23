@@ -11,9 +11,6 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # export PATH="/usr/local/opt/libpq/bin:$PATH"
 # export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 
-# unversioned Python aliases
-export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
-
 # export FPATH=~/.rbenv/completions:"$FPATH"
 
 # Path to your oh-my-zsh installation.

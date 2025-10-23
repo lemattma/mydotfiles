@@ -29,6 +29,16 @@ alias brf='brew info'
 alias brl='brew leaves | xargs brew desc --eval-all'
 alias ehosts='sudo vim /etc/hosts'
 
+# Rails
+alias r='bin/rails'
+alias rs='bin/rails server'
+alias rc='bin/rails console'
+alias rdbm='bin/rails db:migrate'
+alias rdbp='bin/rails db:prepare'
+
+# Paths
+alias paths='echo $PATH | tr ":" "\n" | sort'
+
 # List only directories
 alias lsd='ls -lah | grep "^d"'
 
