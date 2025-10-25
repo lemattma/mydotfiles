@@ -1,6 +1,7 @@
 #!/bin/bash
 
-CONFIG_FILE=$(readlink ~/.config/alacritty/alacritty.toml)
+# CONFIG_FILE=$(readlink ~/.config/alacritty/alacritty.toml)
+CONFIG_FILE=~/.config/alacritty/alacritty.toml
 
 light() {
   cp -f ~/.config/alacritty/theme-light.toml ~/.config/alacritty/theme-current.toml

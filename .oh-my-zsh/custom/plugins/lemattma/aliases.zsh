@@ -29,6 +29,9 @@ alias brf='brew info'
 alias brl='brew leaves | xargs brew desc --eval-all'
 alias ehosts='sudo vim /etc/hosts'
 
+# Software development
+alias cs='cursor'
+
 # Rails
 alias r='bin/rails'
 alias rs='bin/rails server'

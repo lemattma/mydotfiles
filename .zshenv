@@ -3,13 +3,16 @@
 
 export PATH="$PATH:/Applications/Alacritty.app/Contents/MacOS"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+# export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 # export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 # export PATH="/usr/local/opt/libpq/bin:$PATH"
 # export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
+# unversioned Python aliases
+export PATH="/opt/homebrew/opt/python@3.13/libexec/bin:$PATH"
 
 # export FPATH=~/.rbenv/completions:"$FPATH"
 
